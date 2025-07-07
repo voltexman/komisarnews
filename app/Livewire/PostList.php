@@ -34,9 +34,7 @@ class PostList extends Component
 
     public function loadMore()
     {
-        $this->posts->push(
-            ...$this->paginator->getCollection()
-        );
+        $this->posts->push(...$this->paginator->getCollection());
 
         $this->page = $this->page + 1;
     }

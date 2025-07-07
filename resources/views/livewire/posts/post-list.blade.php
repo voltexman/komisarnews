@@ -20,16 +20,22 @@
                             {{ $post->published_at->format('d') }}
                         </div>
                     </div>
-                    <div class="md:w-1/2 flex-none h-30 flex overflow-hidden">
-                        <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" class="rounded-xl object-cover"
-                            alt="">
+                    <div class="md:w-1/2 flex-none">
+                        <a href="{{ route('post.show', $post->slug) }}">
+                            <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" class="rounded-xl object-cover"
+                                alt="{{ $post->name }}">
+                        </a>
                     </div>
                     <div class="flex flex-col gap-y-5 grow">
                         <div class="flex items-center gap-x-1.5 -mb-5 ">
                             <x-lucide-tag class="size-3" />
                             <span class="text-sm font-semibold">tag one</span>
                         </div>
-                        <div class="text-3xl font-[Oswald] line-clamp-2">{{ $post->name }}</div>
+                        <div class="text-3xl font-[Oswald] line-clamp-2">
+                            <a href="{{ route('post.show', $post->slug) }}">
+                                {{ $post->name }}
+                            </a>
+                        </div>
                         <div class="font-medium">{{ \Illuminate\Support\Str::limit($post->body, 400) }}</div>
                         <a href="{{ route('post.show', $post->slug) }}">
                             <x-button variant="black" class="flex gap-x-1.5 me-auto">
