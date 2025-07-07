@@ -67,7 +67,7 @@
                                     <x-menu.item :link="route('main')" :active="request()->routeIs('main')">
                                         Головна
                                     </x-menu.item>
-                                    <x-menu.item :link="route('articles.list')" :active="request()->routeIs('articles.list')">
+                                    <x-menu.item :link="route('post.list')" :active="request()->routeIs('post.list')">
                                         Статті
                                     </x-menu.item>
                                     <x-menu.item :link="route('contacts')" :active="request()->routeIs('contacts')">
@@ -117,7 +117,7 @@
                     <div class="space-y-1 px-2 pb-3 pt-2">
                         <x-menu>
                             <x-menu.item :link="route('main')" :active="request()->routeIs('main')">Головна</x-menu.item>
-                            <x-menu.item :link="route('articles.list')" :active="request()->routeIs('articles.list')">Статті</x-menu.item>
+                            <x-menu.item :link="route('post.list')" :active="request()->routeIs('post.list')">Статті</x-menu.item>
                             <x-menu.item :link="route('contacts')" :active="request()->routeIs('contacts')">Контакти</x-menu.item>
                         </x-menu>
                     </div>

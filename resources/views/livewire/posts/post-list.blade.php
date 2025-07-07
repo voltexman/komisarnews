@@ -7,59 +7,36 @@
             </span>
         </div>
     @else
-        <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 sm:gap-20">
+        <div class="max-w-6xl mx-auto flex flex-col gap-y-16">
             @foreach ($posts as $post)
-                <article class="relative flex flex-col lg:flex-row">
-                    {{-- Зображення статті Preview --}}
-                    <a href="{{ route('article.show', ['slug' => $post->slug]) }}"
-                        class="block rounded-t-lg lg:rounded-lg overflow-hidden shadow-xl shadow-max-soft/30 lg:w[640px] lg:h-[400px] h[240px] w-full">
-                        <img src="{{ $post->getFirstMediaUrl('posts', 'preview') ?: asset('images/bg-header.webp') }}"
-                            width="640" height="480" alt="{{ env('APP_NAME') . ' ' . $post->title }}"
-                            class="object-cover object-center duration-700 size-full hover:scale-125 hover:rotate-6"></a>
-
-                    <div x-data="{ maximize: false }"
-                        :class="maximize ? 'lg:w-full lg:h-full' :
-                            'lg:w-2/3 lg:h-[210px] lg:translate-x-10 lg:translate-y-10'"
-                        class="flex flex-col p-4 duration-500 bg-white rounded-b-lg lg:absolute lg:rounded-lg lg:right-0 lg:bottom-0">
-
-                        {{-- Заголовок статті --}}
-                        <div :class="maximize && 'mb-5'">
-                            <h2 class="uppercase mb-2.5 font-semibold line-clamp-1 text-max-black">
-                                <a href="{{ route('article.show', ['slug' => $post->slug]) }}"
-                                    class="transition hover:text-max-soft">
-                                    {{ $post->name }}
-                                </a>
-                            </h2>
+                <article
+                    class="flex flex-col lg:flex-row gap-5 lg:gap-10 border-b border-max-orange/15 pb-16 last:border-b-0 last:pb-0">
+                    <div class="flex-none max-w-12 flex flex-col gap-y-1.5">
+                        <div class="text-xl font-semibold uppercase text-black/80 font-[Oswald]">
+                            {{ $post->published_at->format('M') }}
                         </div>
-
-                        {{-- Scrollbar розгорнутого тексту --}}
-                        <x-scrollbar>
-                            <div :class="!maximize && 'line-clamp-4 text-sm font-medium text-gray-200'">
-                                {{ strip_tags($post->body) }}
-                            </div>
-                        </x-scrollbar>
-
-                        <div class="flex items-center justify-between mt-5">
-
-                            {{-- Дата публікації статті --}}
-                            <span class="flex text-xs">
-                                <x-lucide-calendar class="w-4 h-4 me-1" />
-                                {{ $post->created_at->format('F d, Y') }}
-                            </span>
-
-                            {{-- Кнопка розгортання тексту статті --}}
-                            <span class="cursor-pointer" x-on:click="maximize=!maximize">
-                                <x-lucide-picture-in-picture-2 x-show="!maximize" class="hidden w-4 h-4 lg:block" />
-                                <x-lucide-picture-in-picture x-show="maximize" class="hidden w-4 h-4 lg:block" />
-                            </span>
-
-                            {{-- Кнопка переходу на сторінку статті --}}
-                            <a href={{ route('article.show', ['slug' => $post->slug]) }}
-                                class="text-sm uppercase transition hover:text-max-soft">
-                                Детальніше
-                                <x-lucide-arrow-right class="h-4 w-4 inline-block -mt-0.5 ms-0.5" />
-                            </a>
+                        <span class="h-0.5 bg-black/20"></span>
+                        <div class="font-[Oswald] text-5xl font-bold text-black/65">
+                            {{ $post->published_at->format('d') }}
                         </div>
+                    </div>
+                    <div class="md:w-1/2 flex-none h-30 flex overflow-hidden">
+                        <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" class="rounded-xl object-cover"
+                            alt="">
+                    </div>
+                    <div class="flex flex-col gap-y-5 grow">
+                        <div class="flex items-center gap-x-1.5 -mb-5 ">
+                            <x-lucide-tag class="size-3" />
+                            <span class="text-sm font-semibold">tag one</span>
+                        </div>
+                        <div class="text-3xl font-[Oswald] line-clamp-2">{{ $post->name }}</div>
+                        <div class="font-medium">{{ \Illuminate\Support\Str::limit($post->body, 400) }}</div>
+                        <a href="{{ route('post.show', $post->slug) }}">
+                            <x-button variant="black" class="flex gap-x-1.5 me-auto">
+                                <span class="">Детальніше</span>
+                                <x-lucide-move-right class="size-5" />
+                            </x-button>
+                        </a>
                     </div>
                 </article>
             @endforeach

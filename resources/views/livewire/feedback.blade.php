@@ -22,14 +22,14 @@ $send = function () {
 
     $this->reset();
 
-    session()->flash('success');
+    session()->flash('callback-success');
 };
 
 ?>
 
 <div
     class="relative min-h-[455px] overflow-hidden rounded-xl bg-max-black px-5 py-10 shadow-lg shadow-max-black/50 md:p-10">
-    @session('success')
+    @session('callback-success')
         <div class="absolute inset-0 size-full">
             <div class="flex size-full flex-col items-center justify-center gap-y-5 text-max-soft">
                 <x-lucide-smile class="size-24 text-max-light" stroke-width="1.5" />

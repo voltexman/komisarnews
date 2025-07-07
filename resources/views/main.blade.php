@@ -117,7 +117,7 @@
         </div>
     </x-section>
 
-    <x-section class="relative lg:py-20 bg-max-black">
+    <x-section class="relative lg:py-20 !bg-max-black">
         <div class="grid lg:grid-cols-2">
             <div class="hidden lg:flex gap-x-10">
                 <img data-src="{{ Vite::asset('resources/images/postman.jpg') }}" alt="Відправка Новою поштою"
@@ -402,7 +402,7 @@
         </div>
     </x-section>
 
-    <x-section class="bg-max-black">
+    <x-section class="!bg-max-black">
 
         <x-slot:title class="text-max-light">Покупка волосся</x-slot>
         <x-slot:caption class="text-max-text">

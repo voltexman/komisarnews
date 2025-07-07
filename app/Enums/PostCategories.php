@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum PostCategories: int implements HasLabel
+enum PostCategories: string implements HasLabel
 {
     case ARTICLES = 'article';
     case CITIES = 'city';

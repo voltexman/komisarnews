@@ -15,13 +15,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('title');
             $table->string('slug');
             $table->enum('category', PostCategories::all());
             $table->longText('body')->nullable();
-            $table->text('description')->nullable();
+            $table->timestamp('published_at');
             $table->boolean('is_published')->default(true);
-            $table->boolean('is_indexing')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

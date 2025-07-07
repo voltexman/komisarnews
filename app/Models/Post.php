@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\Post\Categories;
+use App\Enums\PostCategories;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -21,20 +21,18 @@ class Post extends Model implements HasMedia
     use SoftDeletes;
 
     protected $casts = [
-        'category' => Categories::class,
+        'category' => PostCategories::class,
         'is_published' => 'bool',
-        'is_indexing' => 'bool',
+        'published_at' => 'datetime',
     ];
 
     protected $fillable = [
         'name',
-        'title',
         'slug',
         'body',
         'category',
         'is_published',
-        'is_indexing',
-        'description',
+        'published_at',
     ];
 
     const PUBLISHED = 1;
@@ -48,11 +46,6 @@ class Post extends Model implements HasMedia
     public function likes()
     {
         return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
     }
 
     public function registerMediaConversions(?Media $media = null): void

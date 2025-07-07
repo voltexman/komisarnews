@@ -12,14 +12,11 @@ class PostFactory extends Factory
     {
         return [
             'name' => fake()->sentence(),
-            'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'body' => fake()->paragraph(80),
             'category' => PostCategories::ARTICLES,
             'is_published' => fake()->boolean(),
-            'is_indexing' => fake()->boolean(),
-            'description' => fake()->text(100),
-            'tags' => fake()->words(),
+            'published_at' => fake()->dateTime(now()),
         ];
     }
 

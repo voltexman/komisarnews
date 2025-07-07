@@ -1,3 +1,28 @@
+<?php
+
+use function Livewire\Volt\{state, rules};
+use App\Models\Subscribe;
+
+state(['email']);
+
+rules([
+    'email' => 'required|email|min:5|max:50',
+])->messages([
+    'email.required' => 'Вкажіть вашу пошту',
+    'email.email' => 'Некоректно вказана пошта',
+]);
+
+$save = function () {
+    $validated = $this->validate();
+
+    Subscribe::create($validated);
+
+    $this->reset();
+
+    session()->flash('subscribe-success');
+};
+?>
+
 <div class="flex flex-col h-20">
     @session('subscribe-success')
         <div class="flex flex-col items-center self-center px-10">
@@ -17,10 +42,10 @@
             </div>
         </div>
         <form wire:submit='save'>
-            <x-form.input label="Електронна пошта" name="form.email" icon="mail" color="dark" wire:target='save'
+            <x-form.input label="Електронна пошта" name="email" icon="mail" color="dark" wire:target='save'
                 wire:loading.attr='disabled'>
                 <x-slot:button type='submit' wire:loading.attr='disabled'>
-                    <span wire:loading.class='hidden' wire:target='save'>Підписатись
+                    <span wire:loading.remove='hidden' wire:target='save'>Підписатись
                         <x-lucide-send class="inline-block size-4 ms-1" />
                     </span>
                     <span wire:loading wire:target='save'>Відправка
