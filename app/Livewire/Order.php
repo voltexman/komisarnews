@@ -56,6 +56,8 @@ class Order extends Component
 
         session()->flash('number', $created->id);
 
+        $this->current = 'order.person';
+
         $this->order->reset();
     }
 

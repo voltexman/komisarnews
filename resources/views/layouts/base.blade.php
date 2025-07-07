@@ -55,7 +55,7 @@
                     {{-- Logo --}}
                     <div class="flex flex-shrink-0 items-center">
                         <a href="{{ route('main') }}" class="text-lg font-normal uppercase text-max-light">
-                            7777<span class="rounded bg-max-orange px-1 text-white">.hair</span>
+                            komisar<span class="rounded bg-max-orange px-1 text-white">news</span>
                         </a>
                     </div>
 
