@@ -186,11 +186,11 @@
                 <div class="mt-10 flex justify-end gap-3 self-center text-max-soft lg:mt-0 lg:w-1/3">
                     <a href="https://www.facebook.com/profile.php?id=100081276925197" aria-label="Ми в Facebook"
                         target="_blank">
-                        <x-lucide-facebook class="size-6" />
+                        <x-lucide-facebook class="size-8" />
                     </a>
                     <a href="https://instagram.com/sale_hair_kyiv?igshid=OGQ5ZDc2ODk2ZA==" aria-label="Ми в Instagram"
                         target="_blank">
-                        <x-lucide-instagram class="size-6" />
+                        <x-lucide-instagram class="size-8" />
                     </a>
                 </div>
             </div>

@@ -37,8 +37,8 @@ $send = function () {
                     <div>Лист успішно надісланий.</div>
                     <div>Дякуємо Вам!</div>
                 </div>
-                <x-button class="mt-10" variant='light' wire:click='$refresh' wire:loading.attr="disabled"
-                    wire:target.except='send'>Новий лист
+                <x-button class="mt-10" variant="light" wire:click="$refresh" wire:loading.attr="disabled"
+                    wire:target.except="send">Новий лист
                     <x-lucide-rotate-ccw class="ms-1 inline-block h-4 w-4" wire:loading.remove />
                     <x-lucide-loader-circle class="ms-1 hidden h-4 w-4 animate-spin" wire:loading.class.remove='hidden'
                         wire:loading.class='inline-block' />

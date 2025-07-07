@@ -34,8 +34,8 @@ $send = function () {
                         <div class="text-sm">Ми невдовзі зателефонуємо Вам.</div>
                     </div>
                     <button type="button" class="text-left text-sm font-bold text-max-light/80 disabled:opacity-50"
-                        wire:target.except='save' aria-label="Замовити дзвінок на інший номер" wire:click='$refresh'
-                        wire:loading.attr='disabled'>
+                        wire:target.except="send" aria-label="Замовити дзвінок на інший номер" wire:click='$refresh'
+                        wire:loading.attr="disabled">
                         Замовити дзвінок на інший номер?
                     </button>
                 </div>
@@ -44,22 +44,20 @@ $send = function () {
     @else
         <form wire:submit='send'>
             <div class="flex">
-                <div class="font-[Oswald] text-sm uppercase tracking-wider text-max-text">
-                    Передзвоніть мені
-                </div>
+                <div class="font-[Oswald] text-sm uppercase tracking-wider text-max-text">Передзвоніть мені</div>
                 <div class="ms-2 inline-block">
-                    <x-tooltip color='white'>
+                    <x-tooltip variant="light">
                         Якщо у Вас не вистачає грошей на рахунку, менеджер зателефонує Вам в зручний для Вас час.
                     </x-tooltip>
                 </div>
             </div>
             <x-form.input label="Номер телефону" name="phone" icon="phone" color="dark" x-mask="+380 (99) 999-99-99"
-                wire:target='save' wire:loading.attr='disabled'>
+                wire:target="send" wire:loading.attr="disabled">
                 <x-slot:button type="submit" color="dark" wire:loading.attr='disabled' aria-label="Передзвоніть">
-                    <span wire:loading.class='hidden' wire:target='save'>Передзвоніть
+                    <span wire:loading.class='hidden' wire:target="send">Передзвоніть
                         <x-lucide-phone-call class="ms-1 inline-block size-4" />
                     </span>
-                    <span wire:loading wire:target='save'>Відправка
+                    <span wire:loading wire:target="send">Відправка
                         <x-lucide-loader-circle class="ms-1 inline-block size-4 animate-spin" />
                     </span>
                 </x-slot>

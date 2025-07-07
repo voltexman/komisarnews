@@ -8,29 +8,24 @@
 @endsection
 
 @section('content')
-    <article class="overflow-hidden bg-max-light">
-        <div class="max-w-6xl mx-auto px-5 lg:px-0 my-10">
-            {{-- @if ($post->getFirstMediaUrl('posts', 'preview'))
-                <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="300" height="280"
-                    alt="{{ env('APP_NAME') . ' - ' . $post->title }}"
-                    class="block w-full rounded-lg shadow-lg sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50">
-            @endif --}}
-
+    <article class="bg-max-light py-20">
+        <div class="max-w-6xl mx-auto px-5 lg:px-0">
             <div class="flex flex-col md:flex-row gap-10 md:gap-20">
-                <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-5 lg:sticky lg:top-24 self-start order-2 lg:order-1">
                     <div class="font-[Oswald] text-lg">Поділитись:</div>
                     <div class="flex md:flex-col gap-2.5 md:gap-5">
                         <div
-                            class="size-14 flex justify-center items-center rounded-full border border-max-soft bg-max-dark/5">
+                            class="size-14 flex justify-center items-center rounded-full border border-max-soft bg-max-dark/5 hover:bg-max-dark/10 hover:shadow-md transition-all duration-300 cursor-pointer">
                             <x-lucide-facebook class="size-6 stroke-max-dark" stroke-width="1.5" />
                         </div>
                         <div
-                            class="size-14 flex justify-center items-center rounded-full border border-max-soft bg-max-dark/5">
+                            class="size-14 flex justify-center items-center rounded-full border border-max-soft bg-max-dark/5 hover:bg-max-dark/10 hover:shadow-md transition-all duration-300 cursor-pointer">
                             <x-lucide-instagram class="size-6 stroke-max-dark" stroke-width="1.5" />
                         </div>
                     </div>
                 </div>
-                <div class="text-lg">{!! $post->body !!}</div>
+
+                <div class="text-lg order-1 lg:order-2">{!! $post->body !!}</div>
             </div>
 
             @if ($post->category === App\Enums\PostCategories::ARTICLES)

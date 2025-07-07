@@ -14,15 +14,8 @@ class PostController extends Controller
 
     public function show(string $slug): View
     {
-        $post = Post::firstWhere(
-            [
-                'is_published' => Post::PUBLISHED,
-                'slug' => $slug,
-            ]
-        );
+        $post = Post::published()->where('slug', $slug)->firstOrFail();
 
-        return view(['post.show', [
-            'post' => $post,
-        ]);
+        return view('post.show', ['post' => $post]);
     }
 }

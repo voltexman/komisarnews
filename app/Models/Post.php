@@ -43,11 +43,6 @@ class Post extends Model implements HasMedia
 
     const NO_INDEXING = 0;
 
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
     public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('admin')
@@ -64,8 +59,9 @@ class Post extends Model implements HasMedia
             ->format('webp');
     }
 
-    public function scopeActive($query)
+    public function scopePublished($query)
     {
-        return $query->where('is_published', self::PUBLISHED);
+        return $query->where('is_published', self::PUBLISHED)
+            ->where('published_at', '<=', now());
     }
 }

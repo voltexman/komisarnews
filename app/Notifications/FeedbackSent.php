@@ -36,8 +36,8 @@ class FeedbackSent extends Notification
     {
         return TelegramMessage::create()
             ->line('*Зворотній зв`язок*')
-            ->lineIf($this->feedback->name, "*Ім`я:* {$this->feedback->name}")
-            ->lineIf($this->feedback->contact, "*Контакт:* {$this->feedback->contact}")
+            ->lineIf((bool) $this->feedback->name, "*Ім`я:* {$this->feedback->name}")
+            ->lineIf((bool) $this->feedback->contact, "*Контакт:* {$this->feedback->contact}")
             ->line("*Повідомлення:* {$this->feedback->text}");
     }
 }
