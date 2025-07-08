@@ -18,31 +18,33 @@ class OrderSent extends Notification
         $this->order = $order;
     }
 
-    public function via(object $notifiable): array
+    public function via(): array
     {
         return ['mail', 'telegram'];
     }
 
-    public function toMail(object $notifiable): MailMessage
+    public function toMail(): MailMessage
     {
         return (new MailMessage)
             ->greeting('Замовлення')
+            ->subject(env('APP_NAME') . " - Замовлення")
             ->line("**ID:** #{$this->order->id}")
             ->lineIf($this->order->name, "**Ім`я:** {$this->order->name}")
             ->line("**Місто:** {$this->order->city}")
             ->lineIf($this->order->email, "**E-Mail:** {$this->order->email}")
             ->line("**Телефон:** {$this->order->phone}")
             ->line("**Колір:** {$this->order->color->getLabel()}")
-            ->lineIf($this->order->hair_weight, "**Вага:** {$this->order->hair_weight}".'гр.')
-            ->line("**Довжина:** {$this->order->hair_length}".'см')
-            ->lineIf($this->order->age, "**Вік:** {$this->order->age}".'р.')
-            ->line('**Опції:** '.implode(',', $this->order->hair_options))
+            ->lineIf($this->order->hair_weight, "**Вага:** {$this->order->hair_weight}" . 'гр.')
+            ->line("**Довжина:** {$this->order->hair_length}" . 'см')
+            ->lineIf($this->order->age, "**Вік:** {$this->order->age}" . 'р.')
+            ->line('**Опції:** ' . implode(',', $this->order->hair_options))
             ->lineIf($this->order->description, "**Додатковий опис:** {$this->order->description}");
     }
 
-    public function toTelegram(object $notifiable): TelegramMessage
+    public function toTelegram(): TelegramMessage
     {
         return TelegramMessage::create()
+            ->line('*Сайт: *' . env('APP_NAME'))
             ->line('*Замовлення*')
             ->line("*ID:* #{$this->order->id}")
             ->lineIf($this->order->name, "*Ім`я:* {$this->order->name}")
@@ -50,10 +52,10 @@ class OrderSent extends Notification
             ->lineIf($this->order->email, "*E-Mail:* {$this->order->email}")
             ->line("*Телефон:* {$this->order->phone}")
             ->line("*Колір:* {$this->order->color->getLabel()}")
-            ->lineIf((bool) $this->order->hair_weight, "*Вага:* {$this->order->hair_weight}".'гр.')
-            ->line("*Довжина:* {$this->order->hair_length}".'см')
-            ->lineIf((bool) $this->order->age, "*Вік:* {$this->order->age}".'р.')
-            ->line('*Опції:* '.implode(',', $this->order->hair_options))
+            ->lineIf((bool) $this->order->hair_weight, "*Вага:* {$this->order->hair_weight}" . 'гр.')
+            ->line("*Довжина:* {$this->order->hair_length}" . 'см')
+            ->lineIf((bool) $this->order->age, "*Вік:* {$this->order->age}" . 'р.')
+            ->line('*Опції:* ' . implode(',', $this->order->hair_options))
             ->lineIf($this->order->description, "*Додатковий опис:* {$this->order->description}");
     }
 }

@@ -17,14 +17,15 @@ class CallbackSent extends Notification
         $this->phone = $phone;
     }
 
-    public function via(object $notifiable): array
+    public function via(): array
     {
         return ['telegram'];
     }
 
-    public function toTelegram($notifiable)
+    public function toTelegram(): TelegramMessage
     {
         return TelegramMessage::create()
+            ->line('*Сайт: *' . env('APP_NAME'))
             ->line('*Прохання передзвонити*')
             ->line("*Телефон:* {$this->phone}")
             ->line('_Зараз очікує дзвінка..._');

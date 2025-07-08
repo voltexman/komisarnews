@@ -49,7 +49,6 @@ class PostResource extends Resource
 
                     TextInput::make('Посилання')
                         ->prefix('www.komisarnews.com')
-                        ->default('dsagasd-dgsadg24t-ad2tef')
                         ->prefixIcon('heroicon-o-link')
                         ->disabled(),
 

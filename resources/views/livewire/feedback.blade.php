@@ -11,6 +11,9 @@ rules([
     'name' => 'nullable|string|min:2|max:40',
     'contact' => 'nullable|min:5|max:60',
     'text' => 'required|string|min:10|max:1500',
+])->messages([
+    'text.min' => 'Занадто коротке повідомлення',
+    'text.required' => 'Напишіть повідомлення',
 ]);
 
 $send = function () {
@@ -18,13 +21,15 @@ $send = function () {
 
     Feedback::create($validated);
 
-    Notification::route('mail', env('ADMIN_EMAIL'))->route('telegram', env('TELEGRAM_CHAT_ID'))->notify(new FeedbackSent((object) $validated));
+    Notification::routes([
+        'mail' => env('ADMIN_EMAIL'),
+        'telegram' => env('TELEGRAM_CHAT_ID'),
+    ])->notify(new FeedbackSent((object) $validated));
 
     $this->reset();
 
     session()->flash('callback-success');
 };
-
 ?>
 
 <div
@@ -52,11 +57,20 @@ $send = function () {
             </div>
 
             <x-form.input label="Ваше ім`я" icon="user" color='soft' name='name' class="mt-5" maxlength="40" />
+            @error('name')
+                <x-error>{{ $message }}</x-error>
+            @enderror
 
             <x-form.input label="Контактні дані" color='soft' name="contact" class="mt-5" maxlength="60" />
+            @error('contact')
+                <x-error>{{ $message }}</x-error>
+            @enderror
 
             <x-form.textarea label="Повідомлення" color='soft' name="text" rows="5" class="mt-5" required
                 maxlength="1500" />
+            @error('text')
+                <x-error>{{ $message }}</x-error>
+            @enderror
 
             {{-- Loading... --}}
             <div wire:loading wire:target="send" class="absolute inset-0 size-full bg-max-black/80"></div>
