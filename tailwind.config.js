@@ -1,26 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ["./resources/**/*.blade.php", "./resources/**/*.js"],
+    content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./vendor/wireui/wireui/src/*.php",
+        "./vendor/wireui/wireui/ts/**/*.ts",
+        "./vendor/wireui/wireui/src/WireUi/**/*.php",
+        "./vendor/wireui/wireui/src/Components/**/*.php",
+    ],
     darkMode: "class",
     theme: {
-        colors: {
-            transparent: "transparent",
-            white: "#ffffff",
-            black: "#000000",
-            warning: "#ffcc00",
-            red: "#ff0000",
-            max: {
-                orange: "#c28566",
-                white: "#f9eee1",
-                black: "#272121",
-                dark: "#6d574a",
-                light: "#fef1e9",
-                medium: "#49403b",
-                text: "#B19A81",
-                soft: "#9e8c80",
-            },
-        },
         extend: {
+            colors: {
+                // transparent: "transparent",
+                // white: "#ffffff",
+                // black: "#000000",
+                warning: "#ffcc00",
+                red: "#ff0000",
+                max: {
+                    orange: "#c28566",
+                    white: "#f9eee1",
+                    black: "#272121",
+                    dark: "#6d574a",
+                    light: "#fef1e9",
+                    medium: "#49403b",
+                    text: "#B19A81",
+                    soft: "#9e8c80",
+                },
+            },
             backgroundImage: {
                 barber: "url('/public/images/barber.png')",
             },
@@ -75,5 +82,8 @@ export default {
             center: true,
         },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("./vendor/wireui/wireui/tailwind.config.js"),
+    ],
 };

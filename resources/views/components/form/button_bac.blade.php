@@ -1,6 +1,6 @@
 @props(['variant' => 'soft', 'size' => 'default'])
 
-<button
+<x-button
     {{ $attributes->class([
             'bg-max-light/80 text-max-dark lg:hover:bg-max-light' => $variant === 'light',
             'bg-max-soft/40 text-max-dark lg:hover:bg-max-soft/55' => $variant === 'soft',
@@ -11,4 +11,4 @@
             'flex justify-center items-center px-2.5 py-2.5 md:px-5 rounded-md font-semibold text-sm transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed',
         ])->merge(['type' => 'button']) }}>
     {{ $slot }}
-</button>
+</x-button>

@@ -1,11 +1,19 @@
+@php
+    use App\Enums\Order\OrderPurpose;
+
+    $purposes = collect(OrderPurpose::cases())
+        ->map(
+            fn($case) => [
+                'label' => $case->getLabel(),
+                'value' => $case->value,
+            ],
+        )
+        ->toArray();
+@endphp
+
 <div class="flex w-full flex-col gap-y-5">
-    <x-form.select name="$parent.order.purpose">
-        @foreach (App\Enums\Order\OrderPurpose::cases() as $option)
-            <option value="{{ $option->value }}">
-                {{ $option->title() }}
-            </option>
-        @endforeach
-    </x-form.select>
+    <x-form.select placeholder="Оберіть опцію" wire:model="order.purpose" :options="$purposes" option-label="label"
+        option-value="value" />
 
     <x-form.input label="Ваше ім'я" icon="user" maxlength="40" name="$parent.order.name" />
     <x-form.input label="Місто" icon="map-pin" maxlength="30" name="$parent.order.city" required />

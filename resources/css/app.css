@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer utilities {
     /**
@@ -85,42 +83,6 @@
 @layer base {
     [x-cloak] {
         display: none !important;
-    }
-
-    .modal {
-        @apply relative flex flex-col max-w-lg gap-4 overflow-hidden rounded-xl bg-max-light;
-    }
-
-    .modal-header {
-        @apply flex items-center justify-between p-4 font-semibold tracking-wide bg-max-soft text-max-light drop-shadow-md;
-    }
-
-    .modal-body {
-        @apply px-3;
-    }
-
-    .modal-footer {
-        @apply p-4 bg-max-soft/15;
-    }
-
-    .dialog {
-        @apply relative flex flex-col w-full max-w-md overflow-hidden rounded-xl bg-max-white;
-    }
-
-    .dialog-body {
-        @apply p-8;
-    }
-
-    .dialog-actions {
-        @apply flex flex-row justify-end p-4 bg-max-soft/20;
-    }
-
-    .input-icon {
-        @apply absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4;
-    }
-
-    .input-label {
-        @apply w-full absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5;
     }
 
     body {

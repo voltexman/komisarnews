@@ -16,10 +16,10 @@
 
             <x-slot:footer>
                 <x-button wire:click="preview" wire:show="current !== 'order.person'" wire:loading.attr="disabled"
-                    wire:target='preview' class="me-2.5">
-                    <x-lucide-loader-2 wire:loading wire:target='preview' class="me-1.5 inline-block size-5 animate-spin" />
-                    <x-lucide-arrow-left wire:loading.remove wire:target='preview' class="me-1.5 inline-block size-5" />
-                    <span>Назад</span>
+                    wire:target='preview' class="me-2.5" right-icon="arrow-right" label="asf" secondary>
+                    {{-- <x-lucide-loader-2 wire:loading wire:target='preview' class="me-1.5 inline-block size-5 animate-spin" /> --}}
+                    {{-- <x-lucide-arrow-left wire:loading.remove wire:target='preview' class="me-1.5 inline-block size-5" /> --}}
+                    {{-- <span>Назад</span> --}}
                 </x-button>
 
                 <x-button wire:click="rulesShow = true" class="me-auto">
@@ -27,16 +27,15 @@
                 </x-button>
 
                 <x-button wire:show="current !== 'order.check'" wire:click="next" wire:loading.attr="disabled"
-                    wire:target='next'>
-                    <div wire:loading wire:target='next'>
+                    wire:target="next" primary label="Далі" />
+                {{-- <div wire:loading wire:target='next'>
                         <span>Перевірка...</span>
                         <x-lucide-loader-2 class="ms-1 inline-block size-4 animate-spin" />
-                    </div>
-                    <div class="flex" wire:loading.remove wire:target='next'>
+                    </div> --}}
+                {{-- <div class="flex" wire:loading.remove wire:target='next'>
                         <span>Далі</span>
                         <x-lucide-arrow-right class="ms-2 inline-block size-5" />
-                    </div>
-                </x-button>
+                    </div> --}}
 
                 <x-button type="submit" wire:show="current === 'order.check'" wire:click="save">
                     <span>Відправити</span>
