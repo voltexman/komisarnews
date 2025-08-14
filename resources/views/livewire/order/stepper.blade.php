@@ -52,7 +52,7 @@
                     <x-lucide-x wire:click="rulesShow = false" class="absolute right-5 top-5 size-5 cursor-pointer" />
                     <div class="relative overflow-hidden">
                         <x-lucide-file-text
-                            class="absolute left-1/2 top-1/2 z-0 size-[85%] -translate-x-1/2 -translate-y-1/2 rotate-[35deg] opacity-5"
+                            class="absolute left-1/2 top-1/2 z-0 size-[85%] -translate-x-1/2 -translate-y-1/2 rotate-35 opacity-5"
                             stroke-width="1.5" />
                         <x-scrollbar class="relative z-10 h-full overflow-hidden rounded-lg bg-max-dark/10 p-5">
                             <p class="text-balance text-sm font-semibold">

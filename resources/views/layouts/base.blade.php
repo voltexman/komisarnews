@@ -27,7 +27,7 @@
 <body x-data="{ loading: true }">
 
     <div x-show="loading" @load.window="loading=false" x-transition.opacity.duration.500ms
-        class="fixed left-0 top-0 z-[100] flex h-screen w-screen justify-center bg-black">
+        class="fixed left-0 top-0 z-100 flex h-screen w-screen justify-center bg-black">
         <div class="border-current inline-block h-20 w-20 animate-spin self-center rounded-full border-[6px] border-t-transparent text-max-soft"
             role="status" aria-label="loading">
             <span class="sr-only">Loading...</span>
@@ -54,7 +54,7 @@
                 <div class="relative flex h-16 items-center justify-between">
 
                     {{-- Logo --}}
-                    <div class="flex flex-shrink-0 items-center">
+                    <div class="flex shrink-0 items-center">
                         <a href="{{ route('main') }}" class="text-lg font-normal uppercase text-max-light">
                             komisar<span class="rounded bg-max-orange px-1 text-white">news</span>
                         </a>

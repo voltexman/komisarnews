@@ -25,7 +25,7 @@ class CallbackSent extends Notification
     public function toTelegram(): TelegramMessage
     {
         return TelegramMessage::create()
-            ->line('*Сайт: *' . env('APP_NAME'))
+            ->line('*Сайт: *'.env('APP_NAME'))
             ->line('*Прохання передзвонити*')
             ->line("*Телефон:* {$this->phone}")
             ->line('_Зараз очікує дзвінка..._');

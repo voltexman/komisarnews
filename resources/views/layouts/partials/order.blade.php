@@ -14,7 +14,7 @@
             <div
                 class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middle">
                 <span
-                    class="w-8 h-8 flex justify-center items-center flex-shrink-0 bg-white font-medium text-gray-800 rounded-full">
+                    class="w-8 h-8 flex justify-center items-center shrink-0 bg-white font-medium text-gray-800 rounded-full">
                     <i data-lucide="user" class="h-4 w-4 text-max-soft"></i>
                 </span>
                 <div class="mt-2 w-px h-full md:mt-0 md:ms-2 md:w-full md:h-px md:flex-1 bg-gray-200 group-last:hidden">
@@ -36,7 +36,7 @@
             <div
                 class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
                 <span
-                    class="w-8 h-8 flex justify-center items-center flex-shrink-0 bg-white font-medium text-gray-800 rounded-full hs-stepper-active:bg-max-soft/70 hs-stepper-active:animate-bounce hs-stepper-success:bg-max-soft">
+                    class="w-8 h-8 flex justify-center items-center shrink-0 bg-white font-medium text-gray-800 rounded-full hs-stepper-active:bg-max-soft/70 hs-stepper-active:animate-bounce hs-stepper-success:bg-max-soft">
                     <x-lucide-camera
                         class="h-4 w-4 text-max-soft hs-stepper-active:text-max-light hs-stepper-success:hidden"/>
                     <x-lucide-check class="h-4 w-4 hidden text-max-light hs-stepper-success:block"/>
@@ -60,7 +60,7 @@
             <div
                 class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middle">
                 <span
-                    class="w-8 h-8 flex justify-center items-center flex-shrink-0 bg-white font-medium text-gray-800 rounded-full">
+                    class="w-8 h-8 flex justify-center items-center shrink-0 bg-white font-medium text-gray-800 rounded-full">
                     <x-lucide-message-circle class="h-4 w-4 text-max-soft"/>
                 </span>
                 <div class="mt-2 w-px h-full md:mt-0 md:ms-2 md:w-full md:h-px md:flex-1 bg-gray-200 group-last:hidden">
@@ -82,7 +82,7 @@
             <div
                 class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middle">
                 <span
-                    class="w-8 h-8 flex justify-center items-center flex-shrink-0 bg-white font-medium text-gray-800 rounded-full">
+                    class="w-8 h-8 flex justify-center items-center shrink-0 bg-white font-medium text-gray-800 rounded-full">
                     <x-lucide-file-text class="h-4 w-4 text-max-soft"/>
                 </span>
                 <div class="mt-2 w-px h-full md:mt-0 md:ms-2 md:w-full md:h-px md:flex-1 bg-gray-200 group-last:hidden">
@@ -116,7 +116,7 @@
                             data-hs-select='{
         "placeholder": "Select option...",
         "toggleTag": "<button type=\"button\"><span class=\"me-2\" data-icon></span><span class=\"text-gray-800\" data-title></span></button>",
-        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex items-center text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1]",
+        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex items-center text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-1",
         "dropdownClasses": "mt-2 z-50 w-full max-h-[300px] p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto",
         "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
         "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"font-semibold text-gray-800\" data-title></div></div><div class=\"mt-1.5 text-sm text-gray-500\" data-description></div></div>"
@@ -140,7 +140,7 @@
                         </select>
 
                         <div class="absolute top-1/2 end-3 -translate-y-1/2">
-                            <svg class="flex-shrink-0 w-3.5 h-3.5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="shrink-0 w-3.5 h-3.5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m7 15 5 5 5-5"/>
@@ -153,19 +153,19 @@
                     <div class="flex flex-row w-full gap-4">
                         <div class="relative w-1/2">
                             <input type="text" id="hs-floating-input-name"
-                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2"
                                    placeholder="Інеса">
                             <label for="hs-floating-input-name"
-                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-gray-500">
+                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-gray-500">
                                 Ваше ім`я
                             </label>
                         </div>
                         <div class="relative w-1/2">
                             <input type="text" id="hs-floating-input-city"
-                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2"
                                    placeholder="Київ">
                             <label for="hs-floating-input-city"
-                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-gray-500">
+                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-gray-500">
                                 Місто
                             </label>
                         </div>
@@ -173,19 +173,19 @@
                     <div class="flex flex-row w-full gap-4">
                         <div class="relative w-1/2">
                             <input type="text" id="hs-floating-input-email"
-                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2"
                                    placeholder="example@gmail.com">
                             <label for="hs-floating-input-email"
-                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-gray-500">
+                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-gray-500">
                                 Електронна пошта
                             </label>
                         </div>
                         <div class="relative w-1/2">
                             <input type="text" id="hs-floating-input-phone"
-                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+                                   class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2"
                                    placeholder="+380 (12) 345 67 89">
                             <label for="hs-floating-input-phone"
-                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-gray-500">
+                                   class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-gray-500">
                                 Номер телефону
                             </label>
                         </div>
@@ -196,10 +196,10 @@
                             data-hs-select='{
         "placeholder": "Вкажіть колір",
         "toggleTag": "<button type=\"button\"></button>",
-        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1]",
+        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-1",
         "dropdownClasses": "mt-2 z-50 w-full max-h-[300px] p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto",
         "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-        "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"flex-shrink-0 w-3.5 h-3.5 text-blue-600\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>"
+        "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 w-3.5 h-3.5 text-blue-600\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>"
       }'
                             class="hidden">
                             <option value="">Choose</option>
@@ -212,7 +212,7 @@
                         </select>
 
                         <div class="absolute top-1/2 end-3 -translate-y-1/2">
-                            <svg class="flex-shrink-0 w-3.5 h-3.5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="shrink-0 w-3.5 h-3.5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                                  width="24" height="24" viewBox="0 0 24 24" fill="none"
                                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round">
@@ -237,7 +237,7 @@
                                     <button type="button"
                                             class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-decrement>
-                                        <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                        <svg class="shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
                                              width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                              stroke-linejoin="round">
@@ -247,7 +247,7 @@
                                     <button type="button"
                                             class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-increment>
-                                        <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                        <svg class="shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
                                              width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                              stroke-linejoin="round">
@@ -273,7 +273,7 @@
                                     <button type="button"
                                             class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-decrement>
-                                        <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                        <svg class="shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
                                              width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                              stroke-linejoin="round">
@@ -283,7 +283,7 @@
                                     <button type="button"
                                             class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-increment>
-                                        <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                        <svg class="shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
                                              width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                              stroke-linejoin="round">
@@ -309,7 +309,7 @@
                                     <button type="button"
                                             class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-decrement>
-                                        <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                        <svg class="shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
                                              width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                              stroke-linejoin="round">
@@ -319,7 +319,7 @@
                                     <button type="button"
                                             class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-increment>
-                                        <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                        <svg class="shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
                                              width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                              stroke-linejoin="round">
@@ -345,8 +345,8 @@
             <div
                 class="p-4 h-46 bg-gray-50 flex justify-center items-center border border-dashed border-gray-300 rounded-xl relative overflow-hidden">
                 <x-lucide-image-plus
-                    class="h-20 w-20 absolute opacity-10 text-sky-400 -top-3 -left-3 rotate-[35deg]"/>
-                <x-lucide-image class="h-16 w-16 absolute opacity-10 text-purple-500 -top-3 right-3 rotate-[15deg]"/>
+                    class="h-20 w-20 absolute opacity-10 text-sky-400 -top-3 -left-3 rotate-35"/>
+                <x-lucide-image class="h-16 w-16 absolute opacity-10 text-purple-500 -top-3 right-3 rotate-15"/>
                 <div class="w-full flex flex-col">
                     <div class="w1/3 items-center flex justify-center">
                         <div class="relative border-2 border-max-soft p-3 rounded-full">
@@ -388,10 +388,10 @@
                 <!-- Floating Textarea -->
                 <div class="relative">
                     <textarea id="hs-floating-textarea"
-                              class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+                              class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2"
                               placeholder="This is a textarea placeholder"></textarea>
                     <label for="hs-floating-textarea"
-                           class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-gray-500">
+                           class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-gray-500 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-gray-500">
                         Додатковий опис
                     </label>
                 </div>

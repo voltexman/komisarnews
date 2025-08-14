@@ -21,11 +21,11 @@
                 class="absolute inset-0 z-50 m-0 size-full cursor-pointer p-0 opacity-0 outline-none"
                 :class="'{{ $this->isMaxPhotos() ? 'hidden' : 'block' }}'" @dragover="isDropping=true"
                 @dragleave="isDropping=false">
-            <x-lucide-camera class="text-indigo-600 absolute -top-3 left-3 size-20 -rotate-[25deg] opacity-5" />
-            <x-lucide-image class="text-red-600 absolute -right-2 top-1 size-16 rotate-[35deg] opacity-5" />
-            <x-lucide-image-up class="text-purple-600 absolute bottom-1 left-16 size-16 -rotate-[55deg] opacity-5" />
-            <x-lucide-image-plus class="text-cyan-600 absolute bottom-4 right-32 size-14 rotate-[20deg] opacity-5" />
-            <x-lucide-file-image class="text-cyan-600 absolute left-36 top-4 size-16 rotate-[10deg] opacity-5" />
+            <x-lucide-camera class="text-indigo-600 absolute -top-3 left-3 size-20 -rotate-25 opacity-5" />
+            <x-lucide-image class="text-red-600 absolute -right-2 top-1 size-16 rotate-35 opacity-5" />
+            <x-lucide-image-up class="text-purple-600 absolute bottom-1 left-16 size-16 -rotate-55 opacity-5" />
+            <x-lucide-image-plus class="text-cyan-600 absolute bottom-4 right-32 size-14 rotate-20 opacity-5" />
+            <x-lucide-file-image class="text-cyan-600 absolute left-36 top-4 size-16 rotate-10 opacity-5" />
             <div class="flex h-full flex-row">
                 <div class="w-1/3 content-center">
                     <div class="relative mx-auto flex size-16">

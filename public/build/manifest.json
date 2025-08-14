@@ -4,9 +4,12 @@
     "src": "public/images/barber.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CUlNHWUy.css",
+    "file": "assets/app-DPvo0dJ8.css",
     "src": "resources/css/app.css",
-    "isEntry": true
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
   },
   "resources/images/about-2.jpg": {
     "file": "assets/about-2-UE8XOSPc.jpg",
@@ -69,7 +72,7 @@
     "src": "resources/images/washing.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CUrocFeY.js",
+    "file": "assets/app-BGfbrqXG.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

@@ -27,7 +27,7 @@ class FeedbackSent extends Notification
     {
         return (new MailMessage)
             ->greeting('Зворотній зв`язок')
-            ->subject(env('APP_NAME') . " - Зворотній зв`яок")
+            ->subject(env('APP_NAME').' - Зворотній зв`яок')
             ->lineIf($this->feedback->name, "**Ім`я:** {$this->feedback->name}")
             ->lineIf($this->feedback->contact, "**Контакт:** {$this->feedback->contact}")
             ->line("**Повідомлення:** {$this->feedback->text}");
@@ -36,7 +36,7 @@ class FeedbackSent extends Notification
     public function toTelegram(): TelegramMessage
     {
         return TelegramMessage::create()
-            ->line('*Сайт: *' . env('APP_NAME'))
+            ->line('*Сайт: *'.env('APP_NAME'))
             ->line('*Зворотній зв`язок*')
             ->lineIf((bool) $this->feedback->name, "*Ім`я:* {$this->feedback->name}")
             ->lineIf((bool) $this->feedback->contact, "*Контакт:* {$this->feedback->contact}")

@@ -6,12 +6,12 @@
             'bg-max-soft/20 border-max-soft/20 text-max-dark' => $color === 'light',
             'bg-max-light/90 border-max-soft/50 text-max-dark focus:bg-max-light/85' => $color === 'soft',
             'bg-max-dark/40 border-max-dark text-max-text focus:bg-max-light/10 focus:text-max-text' => $color === 'dark',
-            'peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-max-soft focus:ring-max-soft disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2',
+            'peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-max-soft focus:ring-max-soft disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2',
         ]) }}
         placeholder="{{ $label }}" x-on:focus="counter = true" x-on:blur="counter = false" style="resize: none"></textarea>
 
     <label for="hs-floating-{{ $attributes['name'] }}"
-        class="pointer-events-none absolute start-0 top-0 h-full truncate border border-transparent p-4 text-sm text-max-dark transition duration-100 ease-in-out peer-focus:-translate-y-1.5 peer-focus:text-xs peer-focus:text-max-soft peer-disabled:pointer-events-none peer-disabled:opacity-50 peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-max-soft">
+        class="pointer-events-none absolute start-0 top-0 h-full truncate border border-transparent p-4 text-sm text-max-dark transition duration-100 ease-in-out peer-focus:-translate-y-1.5 peer-focus:text-xs peer-focus:text-max-soft peer-disabled:pointer-events-none peer-disabled:opacity-50 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-xs peer-[:not(:placeholder-shown)]:text-max-soft">
         {{ $label }}
     </label>
 

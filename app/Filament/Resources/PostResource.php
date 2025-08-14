@@ -76,8 +76,8 @@ class PostResource extends Resource
 
                     TextInput::make('seo.title')->label('Заголовок'),
 
-                    TextInput::make('seo.description')->label('Опис')
-                ])->description('desc')
+                    TextInput::make('seo.description')->label('Опис'),
+                ])->description('desc'),
             ]);
     }
 
