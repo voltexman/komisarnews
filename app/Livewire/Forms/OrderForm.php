@@ -12,7 +12,7 @@ class OrderForm extends Form
     use WithFileUploads;
 
     #[Session]
-    public $purpose = '';
+    public $purpose = 'Продаж';
 
     #[Session]
     public ?string $name = '';

@@ -65,7 +65,7 @@
         </div>
     </x-section>
 
-    <x-section class="bg-max-light">
+    <x-section class="!bg-[#f2e9e1]/70">
         <div class="grid lg:py-10 lg:grid-cols-2 md:grid-cols-1 gap-y-10 lg:gap-x-10">
             <div>
                 <h2 class="lg:text-4xl text-2xl mb-8 font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
@@ -265,7 +265,7 @@
         </x-alert>
     </x-section>
 
-    <x-section class="bg-[#f2e9e1]">
+    <x-section class="!bg-[#f2e9e1]/70">
         <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden"> ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
         <x-slot:caption>
             МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden">
@@ -319,7 +319,7 @@
                     </p>
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-x-8">
+            <div class="grid grid-cols-3 gap-x-5 lg:gap-x-10">
                 <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
                     <div class="absolute inset-0 z-30 flex items-center justify-center">
                         <div
@@ -389,7 +389,7 @@
                     class="bg-[#6a7265] size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#f2e9e1] -top-3">
                     <x-lucide-info class="text-max-light size-8" />
                 </span>
-                <div class="font-[Oswald] text-max-light text-lg mb-5">
+                <div class="font-[Oswald] text-max-light text-xl mb-5">
                     Ми гарантуємо чесну оцінку, без заниження ціни.
                 </div>
                 <div class="font-medium text-max-light">Натуральне слов'янське волосся - це дуже цінний товар, який не може

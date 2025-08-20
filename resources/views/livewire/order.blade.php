@@ -187,16 +187,16 @@
                         eveniet facere autem.
                     </x-alert>
 
-                    <x-form.textarea label="Додатковий опис" name="$parent.order.description"
+                    <x-form.textarea label="Додатковий опис" name="order.description"
                         class="h-[260px] grow overflow-auto md:h-[315px]" />
                 </div>
 
-                <div wire:show="current === 'check'" class="space-y-2.5">
+                <div wire:show="current === 'check'" class="space-y-5">
                     <div class="text-center font-[Oswald] text-xs font-extrabold uppercase tracking-wide">
                         Перевірка заповнених даних
                     </div>
 
-                    <div class="text-center text-sm font-bold text-max-dark" x-text="$wire.order?.purpose"></div>
+                    <div class="text-center text-sm font-bold text-max-dark" x-text="$wire.order.purpose"></div>
 
                     <div class="flex flex-col gap-y-1.5">
                         <div class="grid grid-cols-2 gap-x-0.5">
@@ -233,15 +233,14 @@
                         </div>
                     </div>
 
-                    <div wire:show="descriptionFull"
-                        class="absolute start-0 top-0 z-20 size-full rounded-lg bg-max-light p-5"
+                    <div wire:show="descriptionFull" class="absolute start-0 top-0 z-20 size-full rounded-lg bg-max-light"
                         x-transition.duration.500ms>
                         <div class="flex h-full flex-col justify-between">
                             <div class="mb-5 text-center font-[Oswald] font-semibold uppercase">
                                 Додатковий опис
                             </div>
                             <x-lucide-minimize x-on:click="$wire.descriptionFull=!$wire.descriptionFull"
-                                class="absolute right-5 top-5 size-5 cursor-pointer" />
+                                class="absolute right-0 top-0 size-5 cursor-pointer" />
                             <div class="relative h-full overflow-hidden">
                                 <x-lucide-message-circle-more
                                     class="absolute left-1/2 top-1/2 z-0 size-[85%] -translate-x-1/2 -translate-y-1/2 opacity-5"
@@ -309,7 +308,7 @@
                         <div class="mb-5 text-center font-[Oswald] font-semibold uppercase">
                             Правила заявки
                         </div>
-                        <x-lucide-x wire:click="rulesShow = false" class="absolute right-5 top-5 size-5 cursor-pointer" />
+                        <x-lucide-x wire:click="rulesShow = false" class="absolute right-0 top-0 size-5 cursor-pointer" />
                         <div class="relative overflow-hidden">
                             <x-lucide-file-text
                                 class="absolute left-1/2 top-1/2 z-0 size-[85%] -translate-x-1/2 -translate-y-1/2 rotate-35 opacity-5"
@@ -341,11 +340,8 @@
                                 </ul>
                                 <p class="text-balance text-sm font-semibold">
                                     Контактна інформація <i class="opacity-85">(електронна пошта та телефон)</i>
-                                    необхідна
-                                    нам
-                                    для того, щоб ми могли оперативно зв’язатися з Вами після отримання замовлення,
-                                    уточнити
-                                    деталі та повідомити остаточну вартість волосся.
+                                    необхідна нам для того, щоб ми могли оперативно зв’язатися з Вами після отримання
+                                    замовлення, уточнити деталі та повідомити остаточну вартість волосся.
                                 </p>
                                 <ul class="text-sm font-semibold">
                                     <span class="font-extrabold">Як відбувається обробка замовлення:</span>
@@ -356,16 +352,13 @@
 
                                     <li><x-lucide-check class="me-0.5 inline-flex size-3.5" />
                                         Після розгляду замовлення, зазвичай протягом кількох годин, ми надішлемо Вам
-                                        другий
-                                        лист
-                                        із детальною інформацією щодо вартості, умов викупу та подальших кроків.
+                                        другий лист із детальною інформацією щодо вартості, умов викупу та подальших кроків.
                                     </li>
                                 </ul>
                                 <ul class="text-sm font-semibold">
                                     <span class="font-extrabold">Додаткова інформація:</span>
                                     <p class="text-balance text-sm font-semibold">
-                                        У полі "Ваше повідомлення" Ви можете зазначити будь-які додаткові відомості,
-                                        які, на
+                                        У полі "Ваше повідомлення" Ви можете зазначити будь-які додаткові відомості, які, на
                                         Вашу думку, можуть вплинути на оцінку волосся. Зокрема:
                                     </p>
                                     <li>
@@ -374,8 +367,7 @@
                                     </li>
                                     <li>
                                         <x-lucide-check class="me-0.5 inline-flex size-3.5" />
-                                        Стан зрізу <i class="opacity-85">(наприклад: свіжа рівна стрижка, волосся
-                                            зібране в
+                                        Стан зрізу <i class="opacity-85">(наприклад: свіжа рівна стрижка, волосся зібране в
                                             шиньйон, укладене волосся тощо)</i>
                                     </li>
                                     <li>
@@ -385,15 +377,12 @@
                                     <li>
                                         <x-lucide-check class="me-0.5 inline-flex size-3.5" />
                                         Інформацію про догляд: як часто милось, чи використовувались засоби для укладки,
-                                        чи
-                                        сушилося феном тощо
+                                        чи сушилося феном тощо
                                     </li>
                                 </ul>
                                 <p class="text-balance text-sm font-bold">
                                     Всі деталі важливі. Чим повнішою буде інформація, тим точніше ми зможемо оцінити
-                                    волосся
-                                    і
-                                    запропонувати Вам вигідну ціну.
+                                    волосся і запропонувати Вам вигідну ціну.
                                 </p>
                                 <hr class="h-px border-0 bg-black/10">
                                 <p class="text-pretty text-xs font-semibold italic">
@@ -403,7 +392,8 @@
                             </x-scrollbar>
                         </div>
 
-                        <div class="mt-5 rounded-lg bg-red/10 p-5 text-xs font-extrabold tracking-wider text-red/95">
+                        <div
+                            class="mt-5 rounded-lg bg-red-500/15 p-5 text-xs font-extrabold tracking-wider text-red-500/95">
                             Ми не надаємо ваші контактні дані іншим особам та не розсилаємо спам!
                             Не намагайтеся обдурити оцінювача, використовуючи прийоми, щоб поліпшити
                             якість волосся, або розтягувати пасмо, щоб візуально збільшити довжину. наш

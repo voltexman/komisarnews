@@ -12,14 +12,9 @@ class Feedback extends Model
 
     protected $table = 'feedbacks';
 
+    protected $fillable = ['name', 'contact', 'text', 'status'];
+
     protected $casts = [
         'status' => FeedbackStatus::class,
-    ];
-
-    protected $fillable = [
-        'name',
-        'contact',
-        'text',
-        'status',
     ];
 }

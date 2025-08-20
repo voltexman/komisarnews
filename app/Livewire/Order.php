@@ -22,7 +22,7 @@ class Order extends Component
 
     public bool $editShow = false;
 
-    public string $current = 'check';
+    public string $current = 'person';
 
     protected array $steps = ['person', 'options', 'photos', 'description', 'check'];
 
@@ -59,7 +59,7 @@ class Order extends Component
 
         session()->flash('number', $created->id);
 
-        $this->current = 'order.person';
+        $this->current = 'person';
 
         $this->order->reset();
     }

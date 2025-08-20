@@ -15,7 +15,7 @@
 
 @section('content')
     <x-section>
-        <div class="flex flex-col gap-x-5 px-5 md:flex-row xl:px-0">
+        <div class="flex flex-col gap-x-5 md:flex-row">
             <div class="grow">
                 <div>
                     <div>Зв'яжіться з нами, надіславши листа.</div>
