@@ -1,4 +1,4 @@
-@props(['caption', 'description', 'percent'])
+@props(['caption', 'description', 'icon'])
 
 <div>
     <div class="flex">
@@ -11,8 +11,8 @@
         <div class="relative w-full mx-auto">
             <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
         </div>
-        <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-            <span class="self-center text-xs font-bold text-max-text">{{ $percent }}%</span>
+        <div class="flex justify-center items-center flex-none border-2 rounded-full border-max-soft size-11 ms-2.5">
+            <img src="{{ $icon }}" class="size-2/3 drop-shadow-lg" alt="">
         </div>
     </div>
 

@@ -7,11 +7,11 @@
 
 @section('header')
     @parent
-    <div class="relative w-full h-screen py-24 overflow-hidden isolate sm:py-32">
+    <div class="relative w-full h-screen py-25 overflow-hidden isolate sm:py-30">
         <div class="absolute top-0 left-0 w-full h-full bg-max-black/60"></div>
         <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="Komisarnews"
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
-        <div class="px-6 mx-auto max-w-7xl lg:px-8">
+        <div class="px-5 mx-auto max-w-7xl lg:px-10">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
                 <h1 class="text-2xl font-light text-center uppercase text-max-light lg:text-6xl"
                     x-intersect="$el.classList.add('slide-down')">
@@ -33,7 +33,7 @@
 @endsection
 
 @section('content')
-    <x-section class="bg-[#f2e9e1] scroll-mt-16" id="about">
+    <x-section class="bg-[#f2e9e1] scroll-mt-15" id="about">
         <x-slot:title>
             Шукаєте Кому Вигідно<br class="lg:hidden"> Продати Волосся?
         </x-slot>
@@ -42,7 +42,7 @@
             <span class="text-max-orange">купити волосся дорого!</span>
         </x-slot>
 
-        <div class="lg:grid lg:grid-cols-5 gap-x-16">
+        <div class="lg:grid lg:grid-cols-5 gap-x-15">
             <div class="col-span-2">
                 <p>Жителі багатьох міст можуть <x-badge>продати волосся</x-badge> особисто <x-badge>нам в руки!</x-badge>
                     Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу
@@ -272,8 +272,8 @@
             <span class="text-max-orange">НА НОВОМУ ОБРАЗІ ГРОШІ</span>
         </x-slot>
 
-        <div class="grid mb-8 lg:grid-cols-2 gap-y-10 lg:gap-x-10 lg:mb-14">
-            <div class="relative p-6 lg:p-10 bg-[#6a7265] rounded-xl">
+        <div class="grid mb-10 lg:grid-cols-2 gap-y-10 lg:gap-x-10 lg:mb-14">
+            <div class="relative p-5 lg:p-10 bg-[#6a7265] rounded-xl">
                 <span
                     class="bg-max-orange size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#f2e9e1] -top-3">
                     <x-lucide-info class="text-max-light size-8" />
@@ -355,36 +355,36 @@
     </x-section>
 
     <x-section class="bg-max-light">
-        <div class="grid gap-14 lg:grid-cols-2">
-            <x-list class="mb-3">
+        <div class="grid gap-15 lg:grid-cols-2">
+            <x-list class="mb-2.5">
                 <x-slot:caption>
                     Що потрібно знати, перш ніж зважитися на продаж волосся?
                 </x-slot>
 
-                <x-list.item class="py-3">
-                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
+                <x-list.item class="py-2.5">
+                    <x-lucide-check-check class="flex-none size-6 me-2.5 text-max-black" />
                     Купівля волосся нашою компанією здійснюється тільки після їх оцінки.
                 </x-list.item>
-                <x-list.item class="py-3">
-                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
+                <x-list.item class="py-2.5">
+                    <x-lucide-check-check class="flex-none size-6 me-2.5 text-max-black" />
                     Вартість формується індивідуально в кожному випадку.
                 </x-list.item>
-                <x-list.item class="py-3">
-                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
+                <x-list.item class="py-2.5">
+                    <x-lucide-check-check class="flex-none size-6 me-2.5 text-max-black" />
                     Щоб озвучити точну ціну нам необхідно побачити фотографію зрізу біля сантиметра і знати точну вагу.
                 </x-list.item>
-                <x-list.item class="py-3">
-                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
+                <x-list.item class="py-2.5">
+                    <x-lucide-check-check class="flex-none size-6 me-2.5 text-max-black" />
                     Купуємо жіночі, чоловічі та дитячі коси від 40 сантиметрів, в будь-яких відтінках.
                 </x-list.item>
-                <x-list.item class="py-3">
-                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
+                <x-list.item class="py-2.5">
+                    <x-lucide-check-check class="flex-none size-6 me-2.5 text-max-black" />
                     Найвищу ціну готові запропонувати за шовковисті, м'які зрізи, без сивини, що не піддавалися
                     фарбуванню, а також хімічній завивці.
                 </x-list.item>
             </x-list>
 
-            <div class="relative p-6 lg:p-10 bg-max-orange rounded-xl">
+            <div class="relative p-5 lg:p-10 bg-max-orange rounded-xl">
                 <span
                     class="bg-[#6a7265] size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#f2e9e1] -top-3">
                     <x-lucide-info class="text-max-light size-8" />
@@ -410,7 +410,7 @@
         </x-slot>
 
         <x-factors>
-            <x-factors.item percent="22">
+            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/ruler-measure-measurement.svg')">
                 <x-slot:caption>Довжина зрізу</x-slot>
                 <x-slot:description>
                     Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то рекомендуємо ненадовго відкласти
@@ -418,7 +418,7 @@
                 </x-slot>
             </x-factors.item>
 
-            <x-factors.item percent="19">
+            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/thumb-up-sign.svg')">
                 <x-slot:caption>Структура локонів</x-slot>
                 <x-slot:description>
                     Вища вартість пропонується за якісні, здорові та рівномірні
@@ -426,7 +426,7 @@
                 </x-slot>
             </x-factors.item>
 
-            <x-factors.item percent="24">
+            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/scissors-cutting-hair.svg')">
                 <x-slot:caption>Стан пучка</x-slot>
                 <x-slot:description>
                     Зріз має бути зроблений за правилами та закріплений зверху
@@ -435,7 +435,7 @@
                 </x-slot>
             </x-factors.item>
 
-            <x-factors.item percent="16">
+            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/chemistry-beaker-liquid-experiment-science.svg')">
                 <x-slot:caption>Хімічний вплив</x-slot>
                 <x-slot:description>
                     Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
@@ -444,7 +444,7 @@
                 </x-slot>
             </x-factors.item>
 
-            <x-factors.item percent="32">
+            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/spray-bottles.svg')">
                 <x-slot:caption>Колір волосся</x-slot>
                 <x-slot:description>
                     Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
@@ -453,7 +453,7 @@
                 </x-slot>
             </x-factors.item>
 
-            <x-factors.item percent="28">
+            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/female-hairs.svg')">
                 <x-slot:caption>Наявність сивини</x-slot>
                 <x-slot:description>
                     Зрізи з сивиною теж підлягають купівлі, але багато залежить
@@ -462,10 +462,5 @@
                 </x-slot>
             </x-factors.item>
         </x-factors>
-
-        <x-alert type="info" class="mt-10 lg:w-1/3">
-            <div class="font-thin text-max-white/80">Відсоткове відношення впливу на ціну є відносним та орієнтовним.
-                В деяких випадках відсотки можуть змінюватись та інші фактори можуть переважати.</div>
-        </x-alert>
     </x-section>
 @endsection
