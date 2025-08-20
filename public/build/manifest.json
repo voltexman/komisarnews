@@ -1,0 +1,108 @@
+{
+  "public/images/barber.png": {
+    "file": "assets/barber-CJ4SNP6M.png",
+    "src": "public/images/barber.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DI-SGGX1.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/images/about-2.jpg": {
+    "file": "assets/about-2-UE8XOSPc.jpg",
+    "src": "resources/images/about-2.jpg"
+  },
+  "resources/images/about.jpg": {
+    "file": "assets/about-Bif6kX13.jpg",
+    "src": "resources/images/about.jpg"
+  },
+  "resources/images/combing.jpg": {
+    "file": "assets/combing-Bwbm_wNY.jpg",
+    "src": "resources/images/combing.jpg"
+  },
+  "resources/images/cutting.jpg": {
+    "file": "assets/cutting-DC8YkNJY.jpg",
+    "src": "resources/images/cutting.jpg"
+  },
+  "resources/images/drying.jpg": {
+    "file": "assets/drying-DowR56Ff.jpg",
+    "src": "resources/images/drying.jpg"
+  },
+  "resources/images/icons/brush-tool.svg": {
+    "file": "assets/brush-tool-C193nJKF.svg",
+    "src": "resources/images/icons/brush-tool.svg"
+  },
+  "resources/images/icons/factors/chemistry-beaker-liquid-experiment-science.svg": {
+    "file": "assets/chemistry-beaker-liquid-experiment-science-BKONbysp.svg",
+    "src": "resources/images/icons/factors/chemistry-beaker-liquid-experiment-science.svg"
+  },
+  "resources/images/icons/factors/female-hairs.svg": {
+    "file": "assets/female-hairs-DEDqYOQc.svg",
+    "src": "resources/images/icons/factors/female-hairs.svg"
+  },
+  "resources/images/icons/factors/palette-creative-creativity-paint.svg": {
+    "file": "assets/palette-creative-creativity-paint-DWCnkqqI.svg",
+    "src": "resources/images/icons/factors/palette-creative-creativity-paint.svg"
+  },
+  "resources/images/icons/factors/ruler-measure-measurement.svg": {
+    "file": "assets/ruler-measure-measurement-zznFNl8k.svg",
+    "src": "resources/images/icons/factors/ruler-measure-measurement.svg"
+  },
+  "resources/images/icons/factors/scissors-cutting-hair.svg": {
+    "file": "assets/scissors-cutting-hair-BJiewoL6.svg",
+    "src": "resources/images/icons/factors/scissors-cutting-hair.svg"
+  },
+  "resources/images/icons/factors/spray-bottles.svg": {
+    "file": "assets/spray-bottles-BsiDV4_R.svg",
+    "src": "resources/images/icons/factors/spray-bottles.svg"
+  },
+  "resources/images/icons/factors/thumb-up-sign.svg": {
+    "file": "assets/thumb-up-sign-CyCamXKr.svg",
+    "src": "resources/images/icons/factors/thumb-up-sign.svg"
+  },
+  "resources/images/icons/female-hairs.svg": {
+    "file": "assets/female-hairs-LX7dn3u0.svg",
+    "src": "resources/images/icons/female-hairs.svg"
+  },
+  "resources/images/icons/woman-hair-cut.svg": {
+    "file": "assets/woman-hair-cut-CEMC-yUc.svg",
+    "src": "resources/images/icons/woman-hair-cut.svg"
+  },
+  "resources/images/modno.jpg": {
+    "file": "assets/modno-BmjCWdHg.jpg",
+    "src": "resources/images/modno.jpg"
+  },
+  "resources/images/molodezhno.jpg": {
+    "file": "assets/molodezhno-CKQ07qBZ.jpg",
+    "src": "resources/images/molodezhno.jpg"
+  },
+  "resources/images/parting.jpg": {
+    "file": "assets/parting-DxyQxVqG.jpg",
+    "src": "resources/images/parting.jpg"
+  },
+  "resources/images/postman-2.jpg": {
+    "file": "assets/postman-2-CN4LJRhN.jpg",
+    "src": "resources/images/postman-2.jpg"
+  },
+  "resources/images/postman.jpg": {
+    "file": "assets/postman-CUnoQylF.jpg",
+    "src": "resources/images/postman.jpg"
+  },
+  "resources/images/stilno.jpg": {
+    "file": "assets/stilno-COY8GbZW.jpg",
+    "src": "resources/images/stilno.jpg"
+  },
+  "resources/images/washing.jpg": {
+    "file": "assets/washing-aUhGhMAI.jpg",
+    "src": "resources/images/washing.jpg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BGfbrqXG.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
