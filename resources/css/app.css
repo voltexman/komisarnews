@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap");
+
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+
+    --color-max-orange: #d9753f; /* насичений помаранчевий, трохи більш живий */
+    --color-max-white: #f7f3ef; /* ніжний кремово-білий, легкий і чистий */
+    --color-max-black: #1c1a17; /* глибокий графітово-чорний */
+    --color-max-dark: #5a4c43; /* темний дерев’яний коричневий */
+    --color-max-light: #faf7f4; /* дуже світлий кремовий, майже білий */
+    --color-max-medium: #3f3a36; /* темно-сірий з відтінком коричневого */
+    --color-max-text: #bfa68a; /* теплий пісочний, м’який для тексту */
+    --color-max-soft: #a88b74; /* приглушений карамельний, м’який акцент */
+}
+
+@layer utilities {
+    .bg-barber {
+        background-image: url("/public/images/barber.png");
+    }
+
+    .animate-slide-top-to-bottom {
+        animation: slide-top-to-bottom 8s linear infinite alternate;
+    }
+
+    .animate-slide-bottom-to-top {
+        animation: slide-bottom-to-top 8s linear infinite alternate;
+    }
+
+    .animate-ricochet {
+        animation: ricochet 25s linear alternate infinite;
+    }
+
+    .animate-jumping-down {
+        animation: jumping-down 2s ease-in-out alternate infinite;
+    }
+
+    .animate-jumping-up {
+        animation: jumping-up 2s ease-in-out alternate infinite;
+    }
+
+    .animate-scale-in {
+        animation: scale-in 10s ease-in-out alternate infinite;
+    }
+
+    .animate-scale-out {
+        animation: scale-out 10s ease-in-out alternate infinite;
+    }
+
+    @keyframes slide-top-to-bottom {
+        0% {
+            object-position: top;
+        }
+        100% {
+            object-position: bottom;
+        }
+    }
+
+    @keyframes slide-bottom-to-top {
+        0% {
+            object-position: bottom;
+        }
+        100% {
+            object-position: top;
+        }
+    }
+
+    @keyframes ricochet {
+        0% {
+            object-position: left;
+        }
+        100% {
+            object-position: right;
+        }
+    }
+
+    @keyframes scale-in {
+        0% {
+            scale: 1;
+        }
+        100% {
+            scale: 1.5;
+        }
+    }
+
+    @keyframes scale-out {
+        0% {
+            scale: 1.5;
+        }
+        100% {
+            scale: 1;
+        }
+    }
+
+    @keyframes jumping-up {
+        0% {
+            transform: translateY(0px);
+        }
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes jumping-down {
+        0% {
+            transform: translateY(0px);
+        }
+        100% {
+            transform: translateY(20px);
+        }
+    }
+}
+
+.mapBackground {
+    fill: #a38a79;
+    stroke: #796249;
+    stroke-width: 0.6;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#Ukraine path:hover {
+    fill: #b19a81;
+}
+
+.regionNoActive {
+    fill: #8f7668 !important;
+    cursor: auto;
+}
+
+.pointerCircle {
+    r: 3px;
+    fill: #91765a;
+    stroke-linecap: square;
+    stroke-linejoin: bevel;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+}
+
+.cityName {
+    transition: all 0.5s ease;
+    pointer-events: none;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 0.6em;
+    fill: #ebe0cc;
+}
+
+#Kiev:hover ~ .cityKiev,
+#KyivCity:hover ~ .cityKiev,
+#SevastopolCity:hover ~ .citySevastopol,
+#Crimea:hover ~ .citySimferopol,
+#Cherkasy:hover ~ .cityCherkasy,
+#Chernivtsi:hover ~ .cityChernivtsi,
+#Dnipropetrovsk:hover ~ .cityDnipro,
+#Donetsk:hover ~ .cityDonetsk,
+#Ivano-Frankivsk:hover ~ .cityIvano-Frankivsk,
+#Kharkiv:hover ~ .cityKharkiv,
+#Kherson:hover ~ .cityKherson,
+#Khmelnytskyi:hover ~ .cityKhmelnytskyi,
+#Kirovohrad:hover ~ .cityKropyvnytskyi,
+#Luhansk:hover ~ .cityLuhansk,
+#Lviv:hover ~ .cityLviv,
+#Mykolaiv:hover ~ .cityMykolaiv,
+#Odessa:hover ~ .cityOdessa,
+#Poltava:hover ~ .cityPoltava,
+#Rivne:hover ~ .cityRivne,
+#Sumu:hover ~ .citySumu,
+#Chernihiv:hover ~ .cityChernihiv,
+#Ternopil:hover ~ .cityTernopil,
+#Zakarpattia:hover ~ .cityUzhhorod,
+#Vinnytsia:hover ~ .cityVinnytsia,
+#Volyn:hover ~ .cityLutsk,
+#Zaporizhia:hover ~ .cityZaporizhia,
+#Zhytomyr:hover ~ .cityZhytomyr {
+    visibility: visible;
+    opacity: 1;
+}
