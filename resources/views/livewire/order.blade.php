@@ -29,11 +29,11 @@
                 <div wire:show="current === 'person'" class="flex flex-col gap-y-5 w-full">
                     <div
                         class="flex sm:flex-row items-center text-sm font-medium bg-max-soft/15 border border-max-soft/30 rounded-lg">
-                        <div class="grid lg:grid-cols-2">
-                            <x-stepper.purpose label="Оцінка" description="Дізнатись вартість вашого волосся"
+                        <div class="grid lg:grid-cols-2 w-full">
+                            <x-stepper.purpose label="Оцінка" description="Дізнатись вартість вашого волосся" icon="gem"
                                 wire:model="order.purpose" />
                             <x-stepper.purpose label="Продаж" description="Продати волосся за вигідною ціною"
-                                wire:model="order.purpose" />
+                                icon="handshake" wire:model="order.purpose" />
                         </div>
                     </div>
 

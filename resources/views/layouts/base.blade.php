@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    {{-- <div x-data="scrollProgress" x-show="isVisible" x-transition.opacity.duration.500ms x-cloak
+    <div x-data="scrollProgress" x-show="isVisible" x-transition.opacity.duration.500ms x-cloak
         class="fixed bottom-4 right-4 z-40 grid h-12 w-12 items-center rounded-full bg-max-soft/50 shadow-md shadow-max-dark/20"
         :style="{ background: `conic-gradient(rgb(92, 75, 56, .7) ${percent}% , rgb(145, 118, 90, .4) ${percent}%)` }">
         <a href="#" rel="nofollow">
@@ -41,7 +41,7 @@
                 <x-lucide-arrow-up class="h-4 w-4 text-center text-max-light" />
             </span>
         </a>
-    </div> --}}
+    </div>
 
     <header>
         @section('header')
@@ -115,11 +115,11 @@
                 <!-- Mobile menu, show/hide based on menu state. -->
                 <div id="mobile-menu" x-show="navIsOpen" x-collapse class="lg:hidden">
                     <div class="space-y-1 px-2 pb-3 pt-2">
-                        {{-- <x-menu>
+                        <x-menu>
                             <x-menu.item :link="route('main')" :active="request()->routeIs('main')">Головна</x-menu.item>
                             <x-menu.item :link="route('post.list')" :active="request()->routeIs('post.list')">Статті</x-menu.item>
                             <x-menu.item :link="route('contacts')" :active="request()->routeIs('contacts')">Контакти</x-menu.item>
-                        </x-menu> --}}
+                        </x-menu>
                     </div>
                 </div>
                 <div x-show="searchIsOpen" x-collapse>
