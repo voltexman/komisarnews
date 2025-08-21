@@ -14,7 +14,7 @@ class Order extends Model
     protected $casts = [
         'color' => HairColor::class,
         'status' => OrderStatus::class,
-        'hair_options' => 'array',
+        'options' => 'array',
     ];
 
     protected $fillable = [
@@ -24,10 +24,10 @@ class Order extends Model
         'email',
         'phone',
         'color',
-        'hair_weight',
-        'hair_length',
+        'weight',
+        'length',
         'age',
-        'hair_options',
+        'options',
         'description',
         'status',
     ];

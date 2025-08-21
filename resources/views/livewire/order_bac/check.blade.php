@@ -46,18 +46,18 @@
         <div class="grid grid-cols-3 gap-x-0.5">
             <div class="flex flex-col">
                 <div class="text-sm font-bold">Вага:</div>
-                <div class="text-sm" x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order.hair_weight }"
-                    x-text="$wire.$parent.order?.hair_weight ? $wire.$parent.order?.hair_weight + 'гр.' : 'не вказано'">
+                <div class="text-sm" x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order.weight }"
+                    x-text="$wire.$parent.order?.weight ? $wire.$parent.order?.weight + 'гр.' : 'не вказано'">
                 </div>
             </div>
 
             <div class="flex flex-col text-sm">
-                <div class="font-bold" x-bind:class="!$wire.$parent.order?.hair_length ? 'text-red' : 'text-max-dark'">
+                <div class="font-bold" x-bind:class="!$wire.$parent.order?.length ? 'text-red' : 'text-max-dark'">
                     Довжина:
                 </div>
                 <div class="font-normal"
-                    x-bind:class="!$wire.$parent.order?.hair_length ? 'text-red italic' : 'text-gray-600'"
-                    x-text="$wire.$parent.order?.hair_length ? $wire.$parent.order?.hair_length + 'мм.' : 'не вказано'">
+                    x-bind:class="!$wire.$parent.order?.length ? 'text-red italic' : 'text-gray-600'"
+                    x-text="$wire.$parent.order?.length ? $wire.$parent.order?.length + 'мм.' : 'не вказано'">
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
             <div class="flex flex-col">
                 <div class="text-sm font-bold">Опції:</div>
                 <div class="text-sm"
-                    x-text="$wire.$parent.order?.hair_options.length ? $wire.$parent.order?.hair_options : 'Не зрізані, не фарбовані, без сивини'">
+                    x-text="$wire.$parent.order?.options.length ? $wire.$parent.order?.options : 'Не зрізані, не фарбовані, без сивини'">
                 </div>
             </div>
             <div class="flex flex-col">

@@ -33,16 +33,16 @@ class OrderForm extends Form
     public $color = '';
 
     #[Session]
-    public ?int $hair_weight = 20;
+    public ?int $weight = null;
 
     #[Session]
-    public ?int $hair_length = 40;
+    public ?int $length = null;
 
     #[Session]
     public ?int $age = null;
 
     #[Session]
-    public $hair_options = [];
+    public $options = [];
 
     #[Session]
     public string $description = '';
@@ -64,10 +64,10 @@ class OrderForm extends Form
             'phone' => 'required|string|min:5|max:20',
             'photos' => 'nullable|array',
             'color' => 'required|string',
-            'hair_weight' => 'nullable|numeric|min:20|max:160',
-            'hair_length' => 'required|numeric|min:40|max:1500',
+            'weight' => 'nullable|numeric|min:20|max:1000',
+            'length' => 'required|numeric|min:100|max:700',
             'age' => 'nullable|numeric|min:18|max:70',
-            'hair_options' => 'nullable|array',
+            'options' => 'nullable|array',
             'description' => 'nullable|string|min:10|max:3000',
         ];
     }

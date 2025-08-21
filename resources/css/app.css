@@ -119,6 +119,17 @@
     }
 }
 
+/* Кастомна утиліта для прибрання стрілок у number input */
+.no-spinner {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+    margin: 0;
+}
+
 .mapBackground {
     fill: #a38a79;
     stroke: #796249;

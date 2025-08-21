@@ -22,7 +22,7 @@ class Order extends Component
 
     public bool $editShow = false;
 
-    public string $current = 'person';
+    public string $current = 'options';
 
     protected array $steps = ['person', 'options', 'description', 'check'];
 

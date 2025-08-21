@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone');
             $table->enum('color', HairColor::all())->default(HairColor::BLOND->value);
-            $table->integer('hair_weight')->nullable();
-            $table->integer('hair_length');
+            $table->integer('weight')->nullable();
+            $table->integer('length');
             $table->integer('age')->nullable();
-            $table->json('hair_options')->nullable();
+            $table->json('options')->nullable();
             $table->text('description')->nullable();
             $table->enum('status', OrderStatus::all())->default(OrderStatus::NEW->value);
             $table->timestamps();

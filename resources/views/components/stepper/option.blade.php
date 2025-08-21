@@ -13,7 +13,7 @@
     </div>
 
     <div class="flex self-center size-5 ms-auto items-center justify-center rounded-full border border-max-dark/60 lg:hidden"
-        :class="$wire.order.hair_options.includes('{{ $label }}') ? 'bg-max-dark/60' :
+        :class="$wire.order.options.includes('{{ $label }}') ? 'bg-max-dark/60' :
             'bg-max-light'">
         <x-lucide-check class="size-3 stroke-max-light"
             x-bind:class="{ 'hidden': !$wire.{{ $name }}.includes('{{ $label }}') }"

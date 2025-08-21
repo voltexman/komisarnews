@@ -34,10 +34,10 @@ class OrderSent extends Notification
             ->lineIf($this->order->email, "**E-Mail:** {$this->order->email}")
             ->line("**Телефон:** {$this->order->phone}")
             ->line("**Колір:** {$this->order->color->value}")
-            ->lineIf($this->order->hair_weight, "**Вага:** {$this->order->hair_weight}" . 'гр.')
-            ->line("**Довжина:** {$this->order->hair_length}" . 'см')
+            ->lineIf($this->order->weight, "**Вага:** {$this->order->weight}" . 'гр.')
+            ->line("**Довжина:** {$this->order->length}" . 'мм')
             ->lineIf($this->order->age, "**Вік:** {$this->order->age}" . 'р.')
-            ->line('**Опції:** ' . implode(',', $this->order->hair_options))
+            ->line('**Опції:** ' . implode(',', $this->order->options))
             ->lineIf($this->order->description, "**Додатковий опис:** {$this->order->description}");
     }
 
@@ -52,10 +52,10 @@ class OrderSent extends Notification
             ->lineIf($this->order->email, "*E-Mail:* {$this->order->email}")
             ->line("*Телефон:* {$this->order->phone}")
             ->line("*Колір:* {$this->order->color->value}")
-            ->lineIf((bool) $this->order->hair_weight, "*Вага:* {$this->order->hair_weight}" . 'гр.')
-            ->line("*Довжина:* {$this->order->hair_length}" . 'см')
+            ->lineIf((bool) $this->order->weight, "*Вага:* {$this->order->weight}" . 'гр.')
+            ->line("*Довжина:* {$this->order->length}" . 'мм')
             ->lineIf((bool) $this->order->age, "*Вік:* {$this->order->age}" . 'р.')
-            ->line('*Опції:* ' . implode(',', $this->order->hair_options))
+            ->line('*Опції:* ' . implode(',', $this->order->options))
             ->lineIf($this->order->description, "*Додатковий опис:* {$this->order->description}");
     }
 }

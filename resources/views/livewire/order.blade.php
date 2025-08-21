@@ -40,8 +40,8 @@
                     <x-form.input label="Ваше ім'я" icon="user" maxlength="40" name="order.name" />
                     <x-form.input label="Місто" icon="map-pin" maxlength="30" name="order.city" required />
                     <x-form.input label="Електронна пошта" icon="mail" maxlength="40" name="order.email" />
-                    <x-form.input label="Номер телефону" icon="phone" maxlength="19" name="order.phone"
-                        x-mask="+380 (99) 999-99-99" required />
+                    <x-form.input label="Номер телефону" icon="phone" name="order.phone" x-mask="+380 (99) 999-99-99"
+                        required />
                 </div>
 
                 <div wire:show="current === 'options'" class="flex flex-col gap-y-5">
@@ -56,20 +56,20 @@
                     </div>
 
                     <div class="grid grid-cols-3 gap-2.5 lg:gap-5">
-                        <x-stepper.param label="Вага" caption="(гр.)" name="order.hair_weight" />
-                        <x-stepper.param label="Довжина" caption="(мм.)" name="order.hair_length" />
-                        <x-stepper.param label="Вік" caption="(р.)" name="order.age" />
+                        <x-stepper.param label="Вага" caption="(гр.)" min="20" max="1000" name="order.weight" />
+                        <x-stepper.param label="Довжина" caption="(мм.)" min="100" max="700" name="order.length"
+                            required />
+                        <x-stepper.param label="Вік" caption="(р.)" min="14" max="70" name="order.age" />
                     </div>
 
                     <x-form.hint>
-                        Заповніть параметри товару та оберіть доступні опції. Це дозволить точно
-                        розрахувати ціну.
+                        Вкажіть параметри та опції товару. Це дозволить точніше розрахувати ціну.
                     </x-form.hint>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-2.5 lg:gap-5">
-                        <x-stepper.option label="Зрізане" :image="Vite::asset('resources/images/icons/woman-hair-cut.svg')" name="order.hair_options" />
-                        <x-stepper.option label="Фарбоване" :image="Vite::asset('resources/images/icons/brush-tool.svg')" name="order.hair_options" />
-                        <x-stepper.option label="З сивиною" :image="Vite::asset('resources/images/icons/female-hairs.svg')" name="order.hair_options" />
+                        <x-stepper.option label="Зрізане" :image="Vite::asset('resources/images/icons/woman-hair-cut.svg')" name="order.options" />
+                        <x-stepper.option label="Фарбоване" :image="Vite::asset('resources/images/icons/brush-tool.svg')" name="order.options" />
+                        <x-stepper.option label="З сивиною" :image="Vite::asset('resources/images/icons/female-hairs.svg')" name="order.options" />
                     </div>
                 </div>
 
@@ -216,15 +216,15 @@
                         </div>
 
                         <div class="grid grid-cols-3 gap-x-0.5">
-                            <x-stepper.check title="Вага" postfix="(гр.)" field="order.hair_weight" />
-                            <x-stepper.check title="Довжина" postfix="(мм.)" field="order.hair_length" />
+                            <x-stepper.check title="Вага" postfix="(гр.)" field="order.weight" />
+                            <x-stepper.check title="Довжина" postfix="(мм.)" field="order.length" />
                             <x-stepper.check title="Вік" postfix="(р.)" field="order.age" />
                         </div>
 
                         <div class="grid grid-rows-3 gap-y-2.5">
                             <x-stepper.check title="Колір волосся" field="order.color" type="color" />
-                            <x-stepper.check title="Опції" field="order.hair_options"
-                                x-text="$wire.order?.hair_options.length ? $wire.order?.hair_options : 'Не зрізані, не фарбовані, без сивини'" />
+                            <x-stepper.check title="Опції" field="order.options"
+                                x-text="$wire.order?.options.length ? $wire.order?.options : 'Не зрізані, не фарбовані, без сивини'" />
 
                             <div class="flex flex-col">
                                 <div class="flex justify-between">
@@ -297,7 +297,7 @@
                             <span>Перевірка...</span>
                             <x-lucide-loader-2 class="ms-1.5 inline-block size-4 animate-spin" />
                         </div>
-                        <div class="flex" wire:loading.remove wire:target='next'>
+                        <div wire:loading.remove wire:target='next'>
                             <span>Далі</span>
                             <x-lucide-arrow-right class="ms-1.5 inline-block size-4" />
                         </div>
