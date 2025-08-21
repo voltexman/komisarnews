@@ -32,21 +32,19 @@
                 {{ $label }}
             </label>
 
-            {{-- Required позначка --}}
             @if ($required)
                 <div class="absolute right-2 top-2 text-lg">
                     <span class="block size-1.5 rounded-full bg-red-500"></span>
                 </div>
             @endif
 
-            {{-- Лічильник символів --}}
             @if ($attributes->has('maxlength'))
                 <div x-show="counter" x-transition.opacity.duration.300ms>
-                    <span class="absolute -bottom-2 right-2 rounded px-1 text-xs text-max-light"
-                        x-bind:class="$wire.{{ $name }} ? ($wire.{{ $name }}.length !== @js($attributes['maxlength']) ?
-                            'bg-max-soft' : 'bg-red-500') : 'bg-max-soft'">
-                        <span
-                            x-text="$wire.{{ $name }} ? $wire.{{ $name }}.length + '/' + @js($attributes['maxlength']) : '0/' + @js($attributes['maxlength'])"></span>
+                    <span
+                        x-bind:class="$wire.{{ $name }}.length !== {{ $attributes['maxlength'] }} ? 'bg-max-soft' :
+                            'bg-red-500'"
+                        class="absolute -bottom-2 right-2 rounded px-1 text-xs text-max-light">
+                        <span x-text="$wire.{{ $name }}.length + '/' + {{ $attributes['maxlength'] }}"></span>
                     </span>
                 </div>
             @endif

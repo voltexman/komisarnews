@@ -23,6 +23,18 @@ enum HairColor: string
         ];
     }
 
+    public function getLabel(): string
+    {
+        return match ($this) {
+            self::BLOND             => 'Блонд',
+            self::LIGHT_BROWN       => 'Світло-русий',
+            self::BROWN             => 'Русий',
+            self::LIGHT_DARK_BROWN  => 'Світло-коричневий',
+            self::DARK_BROWN        => 'Темно-коричневий',
+            self::BLACK             => 'Чорний',
+        };
+    }
+
     public function hex(): string
     {
         return self::colors()[$this->value];

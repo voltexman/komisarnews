@@ -2,7 +2,7 @@
 
 <label
     class="group px-2.5 h-14 lg:h-auto flex cursor-pointer lg:flex-col lg:items-center lg:justify-center gap-2.5 lg:gap-1.5 rounded-lg border border-max-dark/5 lg:px-1.5 py-2.5 transition-colors duration-300 hover:bg-max-soft/30"
-    :class="$wire.{{ $name }}.includes('{{ $label }}') ? 'bg-max-soft/30' : 'bg-max-soft/15'">
+    :class="$wire.{{ $name }}.includes('{{ $label }}') ? 'bg-max-soft/30' : 'bg-max-soft/5'">
 
     <input type="checkbox" value="{{ $label }}" wire:model="{{ $name }}" class="peer hidden" />
 

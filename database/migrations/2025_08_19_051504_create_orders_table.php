@@ -12,7 +12,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id()->startingValue(10205);
-            $table->enum('purpose', ['Продаж', 'Покупка'])->default('Продаж');
+            $table->enum('purpose', ['Оцінка', 'Продаж'])->default('Продаж');
             $table->string('name')->nullable();
             $table->string('city');
             $table->string('email')->nullable();

@@ -9,6 +9,6 @@
     $classes = $variants[$variant] ?? $variants['default'];
 @endphp
 
-<div {{ $attributes->merge(['class' => "rounded-xl shadow-md shadow-max-black/25 p-5 $classes"]) }}>
+<div {{ $attributes->merge(['class' => "relative rounded-xl shadow-md shadow-max-black/25 p-5 $classes"]) }}>
     {{ $slot }}
 </div>

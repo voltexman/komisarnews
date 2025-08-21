@@ -4,8 +4,7 @@
     <div class="text-sm font-bold text-max-dark">{{ $title }}</div>
 
     <div class="flex items-center space-x-1">
-        <div class="text-sm font-medium text-max-dark/80"
-            x-bind:class="{ 'italic text-gray-500': !$wire.{{ $field }} }"
+        <div class="text-sm font-medium text-max-dark/80" x-bind:class="{ 'italic': !$wire.{{ $field }} }"
             @if ($attributes->has('x-text')) x-text="{{ $attributes->get('x-text') }}"
             @else
                 x-text="$wire.{{ $field }} || 'не вказано'" @endif>

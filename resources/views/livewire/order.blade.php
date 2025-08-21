@@ -1,36 +1,41 @@
-<x-card x-cloak>
-    @session('number')
-        <div class="absolute inset-0 size-full rounded-lg bg-max-light">
-            <div class="flex h-full flex-col items-center justify-center">
-                <x-lucide-check-circle-2 class="mx-auto mb-5 size-32 stroke-max-dark/95" stroke-width="1" />
-                <div class="font-semibold text-max-dark">title</div>
-                <div class="text-max-dark">desc</div>
-                <div class="mt-5 text-xl font-bold drop-shadow-lg">ID: #number</div>
-                <x-button type="button" color='light' class="mt-5" wire:click='$refresh' wire:target.except='save'
-                    wire:loading.attr='disabled'>Нова заявка
-                    <x-lucide-rotate-ccw class="ms-1 inline-block size-4" wire:loading.remove />
-                    <x-lucide-refresh-cw class="ms-1 inline-block size-4 animate-spin" wire:loading />
-                </x-button>
-            </div>
-        </div>
-    @else
+@session('order-number')
+    <x-card class="flex flex-col items-center justify-center h-[600px]" x-cloak>
+        <x-lucide-check-circle-2 class="mx-auto mb-5 size-32 stroke-max-dark" stroke-width="1" />
+        <div class="font-semibold text-lg text-max-dark">Заявка відправлена</div>
+        <div class="text-max-dark">Скоро з вами зв’яжемось</div>
+        <div class="mt-5 text-xl text-max-dark font-bold drop-shadow-lg">ID: {{ session('order-number') }}</div>
+        <x-button type="button" color='light' class="mt-5" wire:click='$refresh' wire:target.except='save'
+            wire:loading.attr='disabled'>Нова заявка
+            <x-lucide-rotate-ccw class="ms-1.5 inline-block size-4" wire:loading.remove />
+            <x-lucide-refresh-cw class="ms-1.5 inline-block size-4 animate-spin" wire:loading />
+        </x-button>
+    </x-card>
+@else
+    <x-card x-cloak>
         <x-stepper caption="Оцінка та продаж волосся">
             <form wire:submit="save" class="h-full">
                 <x-slot:header>
-                    <x-stepper.navigation icon='file-text' label='Заявка' step='order.person' />
-                    <x-stepper.navigation icon='swatch-book' label='Опції' step='order.options' />
-                    <x-stepper.navigation icon='camera' label='Фото' step='order.photos' />
-                    <x-stepper.navigation icon='message-circle-more' label='Опис' step='order.description' />
-                    <x-stepper.navigation icon='file-check' label='Дані' step='order.check' />
+                    <x-stepper.navigation icon='file-text' label='Заявка' step="person" :active="$this->isCurrent('person')"
+                        :checked="$this->isChecked('person')" />
+                    <x-stepper.navigation icon='swatch-book' label='Опції' step="options" :active="$this->isCurrent('options')"
+                        :checked="$this->isChecked('options')" />
+                    {{-- <x-stepper.navigation icon='camera' label='Фото' step='order.photos' /> --}}
+                    <x-stepper.navigation icon='message-circle-more' label='Опис' step="description" :active="$this->isCurrent('description')"
+                        :checked="$this->isChecked('check')" :checked="$this->isChecked('description')" />
+                    <x-stepper.navigation icon='file-check' label='Дані' step="check" :active="$this->isCurrent('check')"
+                        :checked="$this->isChecked('check')" />
                 </x-slot>
 
                 <div wire:show="current === 'person'" class="flex flex-col gap-y-5 w-full">
-                    <x-stepper.purpose>
-                        <x-stepper.purpose.item label="Оцінка" description="Дізнатись вартість вашого волосся"
-                            wire:model="order.purpose" />
-                        <x-stepper.purpose.item label="Продаж" description="Продати волосся за вигідною ціною"
-                            wire:model="order.purpose" />
-                    </x-stepper.purpose>
+                    <div
+                        class="flex sm:flex-row items-center text-sm font-medium bg-max-soft/15 border border-max-soft/30 rounded-lg">
+                        <div class="grid lg:grid-cols-2">
+                            <x-stepper.purpose label="Оцінка" description="Дізнатись вартість вашого волосся"
+                                wire:model="order.purpose" />
+                            <x-stepper.purpose label="Продаж" description="Продати волосся за вигідною ціною"
+                                wire:model="order.purpose" />
+                        </div>
+                    </div>
 
                     <x-form.input label="Ваше ім'я" icon="user" maxlength="40" name="order.name" />
                     <x-form.input label="Місто" icon="map-pin" maxlength="30" name="order.city" required />
@@ -61,129 +66,130 @@
                         розрахувати ціну.
                     </x-form.hint>
 
-                    <x-stepper.option>
-                        <x-stepper.option.item label="Зрізане" :image="Vite::asset('resources/images/icons/woman-hair-cut.svg')" name="order.hair_options" />
-                        <x-stepper.option.item label="Фарбоване" :image="Vite::asset('resources/images/icons/brush-tool.svg')" name="order.hair_options" />
-                        <x-stepper.option.item label="З сивиною" :image="Vite::asset('resources/images/icons/female-hairs.svg')" name="order.hair_options" />
-                    </x-stepper.option>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-2.5 lg:gap-5">
+                        <x-stepper.option label="Зрізане" :image="Vite::asset('resources/images/icons/woman-hair-cut.svg')" name="order.hair_options" />
+                        <x-stepper.option label="Фарбоване" :image="Vite::asset('resources/images/icons/brush-tool.svg')" name="order.hair_options" />
+                        <x-stepper.option label="З сивиною" :image="Vite::asset('resources/images/icons/female-hairs.svg')" name="order.hair_options" />
+                    </div>
                 </div>
 
-                <div wire:show="current === 'photos'" x-data="dropzone">
-                    @if ($this->isMaxPhotos())
-                        <div
-                            class="h-40 w-full overflow-hidden rounded-lg border border-dashed border-max-text/30 bg-max-text/10">
-                            <div class="flex h-full content-center justify-center">
-                                <div class="flex flex-col self-center px-8 lg:px-20">
-                                    <x-lucide-octagon-alert class="text-gray-500/90 mx-auto mb-4 size-10 opacity-50" />
-                                    <span class="text-gray-500/90 self-center text-xs">
-                                        Ви додали максимальну кількість фото.
-                                    </span>
-                                    <span class="text-gray-500/90 self-center text-center text-xs">
-                                        Щоб додати або змінити фото, можете видалити
-                                        <x-lucide-trash-2 class="-mt-0.5 inline-flex size-3" />
-                                        будь-яке і відкрити інше.
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    @else
-                        <div :class="isDropping ? 'bg-max-text/60' : 'bg-max-text/20'"
-                            class="relative h-40 w-full overflow-hidden rounded-lg border border-dashed border-max-text/90 duration-300">
-                            <input wire:model="order.photos" type="file" multiple @drop="isDropping=false"
-                                class="absolute inset-0 z-50 m-0 size-full cursor-pointer p-0 opacity-0 outline-none"
-                                :class="'{{ $this->isMaxPhotos() ? 'hidden' : 'block' }}'" @dragover="isDropping=true"
-                                @dragleave="isDropping=false">
-                            <x-lucide-camera class="text-indigo-600 absolute -top-3 left-3 size-20 -rotate-25 opacity-5" />
-                            <x-lucide-image class="text-red-600 absolute -right-2 top-1 size-16 rotate-35 opacity-5" />
-                            <x-lucide-image-up
-                                class="text-purple-600 absolute bottom-1 left-16 size-16 -rotate-55 opacity-5" />
-                            <x-lucide-image-plus
-                                class="text-cyan-600 absolute bottom-4 right-32 size-14 rotate-20 opacity-5" />
-                            <x-lucide-file-image
-                                class="text-cyan-600 absolute left-36 top-4 size-16 rotate-10 opacity-5" />
-                            <div class="flex h-full flex-row">
-                                <div class="w-1/3 content-center">
-                                    <div class="relative mx-auto flex size-16">
-                                        <span
-                                            class="absolute inline-flex size-full animate-ping rounded-full bg-max-soft/50 opacity-75"></span>
-                                        <span
-                                            class="relative inline-flex size-16 rounded-full border-2 border-max-soft/70 bg-max-light">
-                                            <x-lucide-cloud-upload
-                                                class="mx-auto size-7 self-center text-max-soft opacity-90" />
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="flex w-2/3 items-stretch">
-                                    <div class="flex flex-col self-center">
-                                        <x-button class="flex items-center justify-center">
-                                            <x-lucide-camera class="me-1 inline-flex size-5" />
-                                            Відкрити<span class="hidden md:block">&nbsp;зображення</span>
-                                        </x-button>
-                                        <span class="text-sm text-max-dark/70">або перетягнути сюди...</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute bottom-0 left-0 flex w-full justify-between">
-                                <span class="ms-2 text-xs text-max-black/60">
-                                    <x-lucide-file-image class="-mt-1 inline-flex size-3" />
-                                    JPG, PNG
+                {{-- <div wire:show="current === 'photos'" x-data="dropzone">
+                @if ($this->isMaxPhotos())
+                    <div
+                        class="h-40 w-full overflow-hidden rounded-lg border border-dashed border-max-text/30 bg-max-text/10">
+                        <div class="flex h-full content-center justify-center">
+                            <div class="flex flex-col self-center px-8 lg:px-20">
+                                <x-lucide-octagon-alert class="text-gray-500/90 mx-auto mb-4 size-10 opacity-50" />
+                                <span class="text-gray-500/90 self-center text-xs">
+                                    Ви додали максимальну кількість фото.
                                 </span>
-                                <span class="me-2 text-xs text-max-black/60">
-                                    <x-lucide-scaling class="-mt-1 inline-flex size-3" />
-                                    1980x1024
+                                <span class="text-gray-500/90 self-center text-center text-xs">
+                                    Щоб додати або змінити фото, можете видалити
+                                    <x-lucide-trash-2 class="-mt-0.5 inline-flex size-3" />
+                                    будь-яке і відкрити інше.
                                 </span>
                             </div>
                         </div>
-                    @endif
-
-                    <div x-show="isUploading" class="mt-3">
-                        <div class="w-full overflow-hidden rounded-lg bg-max-soft/30">
-                            <span class="block size-16 bg-max-soft/50"></span>
-                        </div>
-
-                        @php $items = ['','','','']; @endphp
-                        <div class="mt-4 grid grid-cols-4 gap-x-4">
-                            @foreach ($items as $item)
-                                <div class="overflow-hidden rounded-lg bg-max-soft/30">
-                                    <div class="h-16"></div>
-                                    <div class="flex h-8 justify-between">
-                                        <span class="flex w-full bg-max-dark/30"></span>
-                                    </div>
+                    </div>
+                @else
+                    <div :class="isDropping ? 'bg-max-text/60' : 'bg-max-text/20'"
+                        class="relative h-40 w-full overflow-hidden rounded-lg border border-dashed border-max-text/90 duration-300">
+                        <input wire:model="order.photos" type="file" multiple @drop="isDropping=false"
+                            class="absolute inset-0 z-50 m-0 size-full cursor-pointer p-0 opacity-0 outline-none"
+                            :class="'{{ $this->isMaxPhotos() ? 'hidden' : 'block' }}'" @dragover="isDropping=true"
+                            @dragleave="isDropping=false">
+                        <x-lucide-camera class="text-indigo-600 absolute -top-3 left-3 size-20 -rotate-25 opacity-5" />
+                        <x-lucide-image class="text-red-600 absolute -right-2 top-1 size-16 rotate-35 opacity-5" />
+                        <x-lucide-image-up
+                            class="text-purple-600 absolute bottom-1 left-16 size-16 -rotate-55 opacity-5" />
+                        <x-lucide-image-plus
+                            class="text-cyan-600 absolute bottom-4 right-32 size-14 rotate-20 opacity-5" />
+                        <x-lucide-file-image
+                            class="text-cyan-600 absolute left-36 top-4 size-16 rotate-10 opacity-5" />
+                        <div class="flex h-full flex-row">
+                            <div class="w-1/3 content-center">
+                                <div class="relative mx-auto flex size-16">
+                                    <span
+                                        class="absolute inline-flex size-full animate-ping rounded-full bg-max-soft/50 opacity-75"></span>
+                                    <span
+                                        class="relative inline-flex size-16 rounded-full border-2 border-max-soft/70 bg-max-light">
+                                        <x-lucide-cloud-upload
+                                            class="mx-auto size-7 self-center text-max-soft opacity-90" />
+                                    </span>
                                 </div>
+                            </div>
+                            <div class="flex w-2/3 items-stretch">
+                                <div class="flex flex-col self-center">
+                                    <x-button class="flex items-center justify-center">
+                                        <x-lucide-camera class="me-1 inline-flex size-5" />
+                                        Відкрити<span class="hidden md:block">&nbsp;зображення</span>
+                                    </x-button>
+                                    <span class="text-sm text-max-dark/70">або перетягнути сюди...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 flex w-full justify-between">
+                            <span class="ms-2 text-xs text-max-black/60">
+                                <x-lucide-file-image class="-mt-1 inline-flex size-3" />
+                                JPG, PNG
+                            </span>
+                            <span class="me-2 text-xs text-max-black/60">
+                                <x-lucide-scaling class="-mt-1 inline-flex size-3" />
+                                1980x1024
+                            </span>
+                        </div>
+                    </div>
+                @endif
+
+                <div x-show="isUploading" class="mt-3">
+                    <div class="w-full overflow-hidden rounded-lg bg-max-soft/30">
+                        <span class="block size-16 bg-max-soft/50"></span>
+                    </div>
+
+                    @php $items = ['','','','']; @endphp
+                    <div class="mt-4 grid grid-cols-4 gap-x-4">
+                        @foreach ($items as $item)
+                            <div class="overflow-hidden rounded-lg bg-max-soft/30">
+                                <div class="h-16"></div>
+                                <div class="flex h-8 justify-between">
+                                    <span class="flex w-full bg-max-dark/30"></span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div x-show='!isUploading'>
+                    @if ($order->photos)
+                        <x-alert class="mt-4">
+                            На мініатюрах фотограції можуть виглядати інакше.
+                            Але майстер бачитиме повноцінне фото. Модете додати ще 2 фото.
+                        </x-alert>
+
+                        <div class="mt-5 grid grid-cols-4 gap-x-5">
+                            @foreach ($order->photos as $photo)
+                                <livewire:order.photo :$photo :key="$photo->getRealPath()" :index="$loop->index" />
                             @endforeach
                         </div>
-                    </div>
-
-                    <div x-show='!isUploading'>
-                        @if ($order->photos)
-                            <x-alert class="mt-4">
-                                На мініатюрах фотограції можуть виглядати інакше.
-                                Але майстер бачитиме повноцінне фото. Модете додати ще 2 фото.
-                            </x-alert>
-
-                            <div class="mt-5 grid grid-cols-4 gap-x-5">
-                                @foreach ($order->photos as $photo)
-                                    <livewire:order.photo :$photo :key="$photo->getRealPath()" :index="$loop->index" />
-                                @endforeach
-                            </div>
-                        @else
-                            <x-alert class="mt-5">
-                                Намагайтесь обирати максимально вигідні фото та ракурс, який найкраще
-                                відображає волосся та їх стан. Максимум до <b>4</b> фото.
-                            </x-alert>
-                            <x-alert warning class="mt-5">
-                                <x-slot name="slot">
-                                    Не застосовуйте фільтрів, які змінюють кольори та якість фото. Не робіть
-                                    фото занадто малим, щоб майстер міг детальніше роздивитись волосся.
-                                </x-slot>
-                            </x-alert>
-                        @endif
-                    </div>
+                    @else
+                        <x-alert class="mt-5">
+                            Намагайтесь обирати максимально вигідні фото та ракурс, який найкраще
+                            відображає волосся та їх стан. Максимум до <b>4</b> фото.
+                        </x-alert>
+                        <x-alert warning class="mt-5">
+                            <x-slot name="slot">
+                                Не застосовуйте фільтрів, які змінюють кольори та якість фото. Не робіть
+                                фото занадто малим, щоб майстер міг детальніше роздивитись волосся.
+                            </x-slot>
+                        </x-alert>
+                    @endif
                 </div>
+            </div> --}}
 
                 <div wire:show="current === 'description'" class="flex flex-col gap-y-5 h-full">
                     <x-alert type="info">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam rerum ad eum delectus sapiente adipisci
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam rerum ad eum delectus sapiente
+                        adipisci
                         eveniet facere autem.
                     </x-alert>
 
@@ -191,8 +197,8 @@
                         class="h-[260px] grow overflow-auto md:h-[315px]" />
                 </div>
 
-                <div wire:show="current === 'check'" class="space-y-5">
-                    <div class="text-center font-[Oswald] text-xs font-extrabold uppercase tracking-wide">
+                <div wire:show="current === 'check'" class="space-y-2.5">
+                    <div class="text-center font-[Oswald] text-xs font-extrabold uppercase tracking-wide text-max-dark">
                         Перевірка заповнених даних
                     </div>
 
@@ -226,8 +232,8 @@
                                     <x-lucide-maximize wire:show="order.description" class="size-4 cursor-pointer"
                                         x-on:click="$wire.descriptionFull=!$wire.descriptionFull" />
                                 </div>
-                                <div class="line-clamp-1 text-sm"
-                                    x-bind:class="{ 'italic text-max-dark/80': !$wire.order.description }"
+                                <div class="line-clamp-1 text-sm text-max-dark/80"
+                                    x-bind:class="{ 'italic': !$wire.order.description }"
                                     x-text="$wire.order?.description || 'не вказано'"></div>
                             </div>
                         </div>
@@ -273,10 +279,11 @@
 
                 <x-slot:footer>
                     <x-button wire:click="preview" wire:show="current !== 'person'" wire:loading.attr="disabled"
-                        wire:target="preview" class="me-2.5">
-                        <x-lucide-loader-2 class="me-2 inline-block size-4 animate-spin" wire:loading
+                        wire:target="preview" class="me-1.5">
+                        <x-lucide-loader-2 class="me-1.5 inline-block size-4 animate-spin" wire:loading
                             wire:target='preview' />
-                        <x-lucide-arrow-left class="me-2 inline-block size-5" wire:loading.remove wire:target='preview' />
+                        <x-lucide-arrow-left class="me-1.5 inline-block size-4" wire:loading.remove
+                            wire:target='preview' />
                         <span>Назад</span>
                     </x-button>
 
@@ -284,21 +291,28 @@
                         <x-lucide-info class="size-5" />
                     </x-button>
 
-                    <x-button wire:show="current !== 'order.check'" wire:click="next" wire:loading.attr="disabled"
+                    <x-button wire:show="current !== 'check'" wire:click="next" wire:loading.attr="disabled"
                         wire:target="next">
                         <div wire:loading wire:target='next'>
                             <span>Перевірка...</span>
-                            <x-lucide-loader-2 class="ms-1 inline-block size-4 animate-spin" />
+                            <x-lucide-loader-2 class="ms-1.5 inline-block size-4 animate-spin" />
                         </div>
                         <div class="flex" wire:loading.remove wire:target='next'>
                             <span>Далі</span>
-                            <x-lucide-arrow-right class="ms-2 inline-block size-5" />
+                            <x-lucide-arrow-right class="ms-1.5 inline-block size-4" />
                         </div>
                     </x-button>
 
-                    <x-button type="submit" wire:show="current === 'order.check'" wire:click="save">
-                        <span>Відправити</span>
-                        <x-lucide-send class="ms-1.5 inline-block size-5" />
+                    <x-button type="submit" wire:show="current === 'check'" wire:click="save"
+                        wire:loading.attr="disabled">
+                        <div wire:loading wire:target='save'>
+                            <span>Відправка...</span>
+                            <x-lucide-loader-2 class="ms-1.5 inline-block size-4 animate-spin" />
+                        </div>
+                        <div wire:loading.remove wire:target='save'>
+                            <span>Відправити</span>
+                            <x-lucide-send class="ms-1.5 inline-block size-4" />
+                        </div>
                     </x-button>
                 </x-slot>
 
@@ -316,8 +330,7 @@
                             <x-scrollbar class="relative z-10 h-full overflow-hidden rounded-lg bg-max-dark/10 p-5">
                                 <p class="text-balance text-sm font-semibold">
                                     Перед надсиланням замовлення, будь ласка, уважно заповніть усі необхідні поля форми.
-                                    Це
-                                    дозволить нам швидше обробити Ваш запит і надати точну інформацію щодо викупу
+                                    Це дозволить нам швидше обробити Ваш запит і надати точну інформацію щодо викупу
                                     волосся.
                                 </p>
                                 <ul class="text-sm font-semibold">
@@ -332,11 +345,12 @@
                                         Довжина <i class="opacity-85">(у сантиметрах)</i>
                                     </li>
                                     <li><x-lucide-check class="me-0.5 inline-flex size-3.5" /> Ваше ім’я</li>
-                                    <li><x-lucide-check class="me-0.5 inline-flex size-3.5" /> Дійсна електронна адреса
+                                    <li><x-lucide-check class="me-0.5 inline-flex size-3.5" />
+                                        Дійсна електронна адреса
                                     </li>
-                                    <li><x-lucide-check class="me-0.5 inline-flex size-3.5" /> Номер телефону для
-                                        зворотного
-                                        зв’язку</li>
+                                    <li><x-lucide-check class="me-0.5 inline-flex size-3.5" />
+                                        Номер телефону для зворотного зв’язку
+                                    </li>
                                 </ul>
                                 <p class="text-balance text-sm font-semibold">
                                     Контактна інформація <i class="opacity-85">(електронна пошта та телефон)</i>
@@ -352,13 +366,15 @@
 
                                     <li><x-lucide-check class="me-0.5 inline-flex size-3.5" />
                                         Після розгляду замовлення, зазвичай протягом кількох годин, ми надішлемо Вам
-                                        другий лист із детальною інформацією щодо вартості, умов викупу та подальших кроків.
+                                        другий лист із детальною інформацією щодо вартості, умов викупу та подальших
+                                        кроків.
                                     </li>
                                 </ul>
                                 <ul class="text-sm font-semibold">
                                     <span class="font-extrabold">Додаткова інформація:</span>
                                     <p class="text-balance text-sm font-semibold">
-                                        У полі "Ваше повідомлення" Ви можете зазначити будь-які додаткові відомості, які, на
+                                        У полі "Ваше повідомлення" Ви можете зазначити будь-які додаткові відомості,
+                                        які, на
                                         Вашу думку, можуть вплинути на оцінку волосся. Зокрема:
                                     </p>
                                     <li>
@@ -367,7 +383,8 @@
                                     </li>
                                     <li>
                                         <x-lucide-check class="me-0.5 inline-flex size-3.5" />
-                                        Стан зрізу <i class="opacity-85">(наприклад: свіжа рівна стрижка, волосся зібране в
+                                        Стан зрізу <i class="opacity-85">(наприклад: свіжа рівна стрижка, волосся
+                                            зібране в
                                             шиньйон, укладене волосся тощо)</i>
                                     </li>
                                     <li>
@@ -403,19 +420,19 @@
                 </div>
 
                 {{-- <div class="absolute start-0 top-0 size-full rounded-lg bg-white/80" wire:loading wire:target="save">
-                    <div class="flex h-full flex-col items-stretch justify-center text-max-soft" role="status">
-                        <div class="self-center text-center">
-                            <div class="border-current inline-block h-14 w-14 animate-spin rounded-full border-[3px] border-t-transparent text-max-soft"
-                                role="status" aria-label="loading">
-                                <span class="sr-only">Loading...</span>
-                            </div>
+                <div class="flex h-full flex-col items-stretch justify-center text-max-soft" role="status">
+                    <div class="self-center text-center">
+                        <div class="border-current inline-block h-14 w-14 animate-spin rounded-full border-[3px] border-t-transparent text-max-soft"
+                            role="status" aria-label="loading">
+                            <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                </div> --}}
+                </div>
+            </div> --}}
             </form>
         </x-stepper>
-    @endsession
-</x-card>
+    </x-card>
+@endsession
 
 @script
     <script>

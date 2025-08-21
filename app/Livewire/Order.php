@@ -24,7 +24,7 @@ class Order extends Component
 
     public string $current = 'person';
 
-    protected array $steps = ['person', 'options', 'photos', 'description', 'check'];
+    protected array $steps = ['person', 'options', 'description', 'check'];
 
     public function preview(): void
     {
@@ -38,6 +38,19 @@ class Order extends Component
         $currentIndex = array_search($this->current, $this->steps);
 
         $this->current = $this->steps[$currentIndex + 1];
+    }
+
+    public function isCurrent(string $step): bool
+    {
+        return $this->current === $step;
+    }
+
+    public function isChecked(string $step): bool
+    {
+        $currentIndex = array_search($this->current, $this->steps);
+        $stepIndex = array_search($step, $this->steps);
+
+        return $stepIndex < $currentIndex;
     }
 
     public function isMaxPhotos(): bool
@@ -57,7 +70,7 @@ class Order extends Component
             ->route('telegram', env('TELEGRAM_CHAT_ID'))
             ->notify(new OrderSent((object) $created));
 
-        session()->flash('number', $created->id);
+        session()->flash('order-number', $created->id);
 
         $this->current = 'person';
 
