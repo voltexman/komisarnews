@@ -9,6 +9,7 @@ use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
@@ -32,6 +33,9 @@ class PostsTable
                     ->badge()
                     ->searchable()
                     ->sortable(),
+
+                ToggleColumn::make('is_published')
+                    ->label(false),
 
                 TextColumn::make('created_at')
                     ->label('Створено')

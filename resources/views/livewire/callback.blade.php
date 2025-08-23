@@ -15,13 +15,12 @@ $send = function () {
 
     $this->reset();
 
-    session()->flash('success');
+    session()->flash('callback-success');
 };
-
 ?>
 
 <div class="relative flex h-20 flex-col">
-    @session('success')
+    @session('callback-success')
         <div class="flex size-full bg-max-black">
             <div class="flex flex-row items-center justify-center self-center">
                 <div class="me-5 flex self-center">

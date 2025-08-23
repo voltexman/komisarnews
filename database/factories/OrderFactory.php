@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\HairColor;
 use App\Enums\OrderStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -10,7 +11,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'purpose' => fake()->randomElement(['', '']),
+            'purpose' => fake()->randomElement(['Оцінка', 'Продаж']),
             'name' => fake()->optional()->name(),
             'city' => fake()->city(),
             'email' => fake()->unique()->safeEmail(),
@@ -18,8 +19,8 @@ class OrderFactory extends Factory
             'weight' => fake()->optional()->numberBetween(80, 400),
             'length' => fake()->numberBetween(50, 500),
             'age' => fake()->optional()->numberBetween(18, 60),
-            'color' => fake()->randomElement(['', '']),
-            // 'options' => fake()->array,
+            'color' => fake()->randomElement(HairColor::all()),
+            'options' => fake()->optional()->randomElements(['Зрізане', 'Фарбоване', 'З сивиною']),
             'description' => fake()->optional()->text(),
             'status' => fake()->randomElement(OrderStatus::all()),
         ];

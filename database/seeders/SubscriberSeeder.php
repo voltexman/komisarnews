@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Subscribe;
+use App\Models\Subscriber;
 use Illuminate\Database\Seeder;
 
-class SubscribeSeeder extends Seeder
+class SubscriberSeeder extends Seeder
 {
     public function run(): void
     {
-        Subscribe::factory(200)->create();
+        Subscriber::factory(200)->create();
     }
 }

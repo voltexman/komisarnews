@@ -63,7 +63,7 @@
                     </div>
 
                     <x-form.hint>
-                        Вкажіть параметри та опції товару. Це дозволить точніше розрахувати ціну.
+                        Вкажіть параметри та опції товару. Це дозволить нам точніше розрахувати ціну.
                     </x-form.hint>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-2.5 lg:gap-5">
@@ -187,14 +187,13 @@
             </div> --}}
 
                 <div wire:show="current === 'description'" class="flex flex-col gap-y-5 h-full">
-                    <x-alert type="info">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam rerum ad eum delectus sapiente
-                        adipisci
-                        eveniet facere autem.
+                    <x-alert type="info" title="Що вказувати в описі?">
+                        Ви можете розповісти про <b>стан волосся</b> як фарбувалось, чи проходило <b>хімічні процедури</b>
+                        або як часто ви користувалися <b>засобами для укладки</b>. Також можете додати інформацію про
+                        <b>догляд</b>, <b>структуру</b> чи інші деталі, які допоможуть нам краще його оцінити.
                     </x-alert>
 
-                    <x-form.textarea label="Додатковий опис" name="order.description"
-                        class="h-[260px] grow overflow-auto md:h-[315px]" />
+                    <x-form.textarea label="Додатковий опис" name="order.description" class="h-full grow" />
                 </div>
 
                 <div wire:show="current === 'check'" class="space-y-2.5">
@@ -409,13 +408,12 @@
                             </x-scrollbar>
                         </div>
 
-                        <div
-                            class="mt-5 rounded-lg bg-red-500/15 p-5 text-xs font-extrabold tracking-wider text-red-500/95">
+                        <x-alert type="danger" class="mt-5 font-extrabold tracking-wider">
                             Ми не надаємо ваші контактні дані іншим особам та не розсилаємо спам!
                             Не намагайтеся обдурити оцінювача, використовуючи прийоми, щоб поліпшити
                             якість волосся, або розтягувати пасмо, щоб візуально збільшити довжину. наш
                             фахівець обов'язково розпізнає обман.
-                        </div>
+                        </x-alert>
                     </div>
                 </div>
 

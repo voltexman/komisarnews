@@ -10,18 +10,18 @@ enum OrderStatus: string implements HasColor, HasIcon, HasLabel
 {
     case NEW = 'new';
     case VIEWED = 'viewed';
-    case IN_PROGRESS = 'in_progress';
+    case PROCESSING = 'processing';
     case CANCELED = 'canceled';
-    case READY = 'ready';
+    case COMPLETED = 'completed';
 
     public function getLabel(): ?string
     {
         return match ($this) {
             self::NEW => 'Нове',
             self::VIEWED => 'Переглянуто',
-            self::IN_PROGRESS => 'В очікуванні',
+            self::PROCESSING => 'В очікуванні',
             self::CANCELED => 'Відмінено',
-            self::READY => 'Завершено',
+            self::COMPLETED => 'Завершено',
         };
     }
 
@@ -30,9 +30,9 @@ enum OrderStatus: string implements HasColor, HasIcon, HasLabel
         return match ($this) {
             self::NEW => 'danger',
             self::VIEWED => 'info',
-            self::IN_PROGRESS => 'warning',
+            self::PROCESSING => 'warning',
             self::CANCELED => 'gray',
-            self::READY => 'success',
+            self::COMPLETED => 'success',
         };
     }
 
@@ -41,9 +41,9 @@ enum OrderStatus: string implements HasColor, HasIcon, HasLabel
         return match ($this) {
             self::NEW => 'heroicon-o-sparkles',
             self::VIEWED => 'heroicon-o-eye',
-            self::IN_PROGRESS => 'heroicon-o-clock',
+            self::PROCESSING => 'heroicon-o-clock',
             self::CANCELED => 'heroicon-o-exclamation-triangle',
-            self::READY => 'heroicon-o-check-circle',
+            self::COMPLETED => 'heroicon-o-check-circle',
         };
     }
 

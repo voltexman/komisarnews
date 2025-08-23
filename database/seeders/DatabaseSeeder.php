@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             OrderSeeder::class,
             FeedbackSeeder::class,
-            SubscribeSeeder::class,
+            SubscriberSeeder::class,
         ]);
     }
 }

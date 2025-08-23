@@ -30,7 +30,7 @@ class FeedbackSent extends Notification
             ->subject(env('APP_NAME').' - Зворотній зв`яок')
             ->lineIf($this->feedback->name, "**Ім`я:** {$this->feedback->name}")
             ->lineIf($this->feedback->contact, "**Контакт:** {$this->feedback->contact}")
-            ->line("**Повідомлення:** {$this->feedback->text}");
+            ->line("**Повідомлення:** {$this->feedback->message}");
     }
 
     public function toTelegram(): TelegramMessage
@@ -40,6 +40,6 @@ class FeedbackSent extends Notification
             ->line('*Зворотній зв`язок*')
             ->lineIf((bool) $this->feedback->name, "*Ім`я:* {$this->feedback->name}")
             ->lineIf((bool) $this->feedback->contact, "*Контакт:* {$this->feedback->contact}")
-            ->line("*Повідомлення:* {$this->feedback->text}");
+            ->line("*Повідомлення:* {$this->feedback->message}");
     }
 }

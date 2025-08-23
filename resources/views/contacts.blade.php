@@ -1,10 +1,5 @@
 @extends('layouts.base')
 
-@section('title', 'Контакти')
-@section('keywords', 'Контакти')
-@section('description', 'Контакти')
-@section('robots', 'all')
-
 @section('header')
     @parent
     <x-header :image="asset('images/contact-header.webp')">
@@ -63,7 +58,7 @@
                 </div>
             </div>
 
-            <div class="mx-auto w-full max-w-sm">
+            <div class="w-full max-w-md">
                 <livewire:feedback />
             </div>
         </div>

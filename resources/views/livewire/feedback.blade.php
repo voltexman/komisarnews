@@ -5,15 +5,15 @@ use Illuminate\Support\Facades\Notification;
 use App\Notifications\FeedbackSent;
 use App\Models\Feedback;
 
-state(['name', 'contact', 'text']);
+state(['name', 'contact', 'message']);
 
 rules([
     'name' => 'nullable|string|min:2|max:40',
     'contact' => 'nullable|min:5|max:60',
-    'text' => 'required|string|min:10|max:1500',
+    'message' => 'required|string|min:10|max:1500',
 ])->messages([
-    'text.min' => 'Занадто коротке повідомлення',
-    'text.required' => 'Напишіть повідомлення',
+    'message.min' => 'Занадто коротке повідомлення',
+    'message.required' => 'Напишіть повідомлення',
 ]);
 
 $send = function () {
@@ -61,14 +61,15 @@ $send = function () {
                 <x-error>{{ $message }}</x-error>
             @enderror
 
-            <x-form.input label="Контактні дані" color='soft' name="contact" class="mt-5" maxlength="60" />
+            <x-form.input label="Контактні дані" icon="notebook-tabs" color='soft' name="contact" class="mt-5"
+                maxlength="60" />
             @error('contact')
                 <x-error>{{ $message }}</x-error>
             @enderror
 
-            <x-form.textarea label="Повідомлення" color='soft' name="text" rows="5" class="mt-5" required
+            <x-form.textarea label="Повідомлення" color='soft' name="message" rows="5" class="mt-5" required
                 maxlength="1500" />
-            @error('text')
+            @error('message')
                 <x-error>{{ $message }}</x-error>
             @enderror
 
@@ -84,8 +85,11 @@ $send = function () {
             </div>
 
             <div class="flex justify-center">
-                <x-button type="submit" variant='orange' class="mt-8">Надіслати
-                    <x-lucide-send class="ms-1.5 inline-block size-4" />
+                <x-button type="submit" variant='orange' class="mt-10">
+                    <span wire:loading.remove>Надіслати</span>
+                    <x-lucide-send wire:loading.remove class="ms-1.5 inline-block size-4" />
+                    <span wire:loading>Відправка</span>
+                    <x-lucide-loader-2 wire:loading class="ms-1.5 inline-block size-4 animate-spin" />
                 </x-button>
             </div>
         </form>

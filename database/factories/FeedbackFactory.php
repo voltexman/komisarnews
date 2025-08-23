@@ -11,7 +11,7 @@ class FeedbackFactory extends Factory
         return [
             'name' => fake()->optional()->name(),
             'contact' => fake()->optional()->phoneNumber(),
-            'text' => fake()->text(),
+            'message' => fake()->text(),
         ];
     }
 }

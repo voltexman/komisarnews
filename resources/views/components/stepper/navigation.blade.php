@@ -5,7 +5,7 @@
         <div @class([
             'flex items-center justify-center shrink-0 mx-auto rounded-full size-10 p-1.5',
             'bg-max-soft/15' => !$active && !$checked,
-            'bg-max-dark/30 animate-pulse' => $active,
+            'bg-max-dark/30 animate-bounce' => $active,
             'bg-max-dark' => $checked,
         ])>
             @if ($checked)

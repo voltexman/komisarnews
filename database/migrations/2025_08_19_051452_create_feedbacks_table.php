@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\FeedbackStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('contact')->nullable();
-            $table->text('text');
-            $table->enum('status', FeedbackStatus::all())->default(FeedbackStatus::NEW);
+            $table->text('message');
+            $table->boolean('is_read')->default(false);
             $table->timestamps();
         });
     }

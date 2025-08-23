@@ -157,7 +157,7 @@
     <x-section class="border-b-8 border-max-light/10 !bg-max-black px-0 py-14 sm:px-28 lg:px-0">
         <div class="flex flex-col gap-y-10 lg:flex-row lg:justify-between lg:gap-8 lg:gap-y-0">
             <div class="order-2 w-full lg:order-1 lg:w-2/3">
-                <livewire:subscribe />
+                <livewire:subscriber />
             </div>
             <div class="order-1 w-full lg:order-2 lg:w-1/3">
                 <livewire:callback />

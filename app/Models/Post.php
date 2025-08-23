@@ -34,14 +34,6 @@ class Post extends Model implements HasMedia
         'published_at',
     ];
 
-    const PUBLISHED = 1;
-
-    const HIDDEN = 0;
-
-    const INDEXING = 1;
-
-    const NO_INDEXING = 0;
-
     public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('admin')
@@ -60,7 +52,7 @@ class Post extends Model implements HasMedia
 
     public function scopePublished($query)
     {
-        return $query->where('is_published', self::PUBLISHED)
+        return $query->where('is_published', true)
             ->where('published_at', '<=', now());
     }
 }

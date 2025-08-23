@@ -1,12 +1,12 @@
 <?php
 
 use function Livewire\Volt\{state, rules};
-use App\Models\Subscribe;
+use App\Models\Subscriber;
 
 state(['email']);
 
 rules([
-    'email' => 'required|email|min:5|max:50',
+    'email' => 'required|email|min:5|max:50|unique:subscribers,email',
 ])->messages([
     'email.required' => 'Вкажіть вашу пошту',
     'email.email' => 'Некоректно вказана пошта',
@@ -15,7 +15,7 @@ rules([
 $save = function () {
     $validated = $this->validate();
 
-    Subscribe::create($validated);
+    Subscriber::create($validated);
 
     $this->reset();
 
