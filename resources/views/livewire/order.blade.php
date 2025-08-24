@@ -186,14 +186,14 @@
                 </div>
             </div> --}}
 
-                <div wire:show="current === 'description'" class="flex flex-col gap-y-5 h-full">
+                <div wire:show="current === 'description'" class="flex flex-col gap-y-5 h-full flex-1">
                     <x-alert type="info" title="Що вказувати в описі?">
                         Ви можете розповісти про <b>стан волосся</b> як фарбувалось, чи проходило <b>хімічні процедури</b>
                         або як часто ви користувалися <b>засобами для укладки</b>. Також можете додати інформацію про
                         <b>догляд</b>, <b>структуру</b> чи інші деталі, які допоможуть нам краще його оцінити.
                     </x-alert>
 
-                    <x-form.textarea label="Додатковий опис" name="order.description" class="h-full grow" />
+                    <x-form.textarea label="Додатковий опис" name="order.description" maxlength="1500" class="h-full" />
                 </div>
 
                 <div wire:show="current === 'check'" class="space-y-2.5">

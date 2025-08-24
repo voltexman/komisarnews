@@ -8,7 +8,7 @@ state(['email']);
 rules([
     'email' => 'required|email|min:5|max:50|unique:subscribers,email',
 ])->messages([
-    'email.required' => 'Вкажіть вашу пошту',
+    'email.required' => 'Вкажіть поштову адресу',
     'email.email' => 'Некоректно вказана пошта',
 ]);
 
@@ -49,15 +49,17 @@ $save = function () {
             </div>
         </div>
         <form wire:submit="save">
-            <x-form.input label="Електронна пошта" name="email" icon="mail" color="dark" wire:target="save"
+            <x-form.input label="Електронна пошта" name="email" icon="mail" variant="dark" wire:target="save"
                 wire:loading.attr="disabled">
-                <x-slot:button type='submit' wire:loading.attr="disabled">
-                    <span wire:loading.remove="hidden" wire:target="save">Підписатись
-                        <x-lucide-send class="inline-block size-4 ms-1" />
-                    </span>
-                    <span wire:loading wire:target="save">Відправка
-                        <x-lucide-loader-circle class="inline-block size-4 ms-1 animate-spin" />
-                    </span>
+                <x-slot:button>
+                    <x-form.input-button type="submit" wire:loading.attr="disabled">
+                        <span wire:loading.remove wire:target="save">Підписатись
+                            <x-lucide-send class="inline-block size-4 ms-1" />
+                        </span>
+                        <span wire:loading wire:target="save">Відправка
+                            <x-lucide-loader-circle class="inline-block size-4 ms-1 animate-spin" />
+                        </span>
+                    </x-form.input-button>
                 </x-slot>
             </x-form.input>
         </form>

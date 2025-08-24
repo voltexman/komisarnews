@@ -22,27 +22,27 @@ class ListOrders extends ListRecords
                 ->icon(Heroicon::Sparkles)
                 ->badge(Order::query()->where('status', OrderStatus::NEW)->count())
                 ->badgeColor('danger')
-                ->modifyQueryUsing(fn(Builder $query) => $query->where('status', OrderStatus::NEW)),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', OrderStatus::NEW)),
             'Переглянуті' => Tab::make()
                 ->icon(Heroicon::Eye)
                 ->badge(Order::query()->where('status', OrderStatus::VIEWED)->count())
                 ->badgeColor('info')
-                ->modifyQueryUsing(fn(Builder $query) => $query->where('status', OrderStatus::VIEWED)),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', OrderStatus::VIEWED)),
             'В очікуванні' => Tab::make()
                 ->icon(Heroicon::Clock)
                 ->badge(Order::query()->where('status', OrderStatus::PROCESSING)->count())
                 ->badgeColor('warning')
-                ->modifyQueryUsing(fn(Builder $query) => $query->where('status', OrderStatus::PROCESSING)),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', OrderStatus::PROCESSING)),
             'Відмінені' => Tab::make()
                 ->icon(Heroicon::ExclamationTriangle)
                 ->badge(Order::query()->where('status', OrderStatus::CANCELED)->count())
                 ->badgeColor('gray')
-                ->modifyQueryUsing(fn(Builder $query) => $query->where('status', OrderStatus::CANCELED)),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', OrderStatus::CANCELED)),
             'Завершені' => Tab::make()
                 ->icon(Heroicon::CheckCircle)
                 ->badge(Order::query()->where('status', OrderStatus::COMPLETED)->count())
                 ->badgeColor('success')
-                ->modifyQueryUsing(fn(Builder $query) => $query->where('status', OrderStatus::COMPLETED)),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', OrderStatus::COMPLETED)),
         ];
     }
 }

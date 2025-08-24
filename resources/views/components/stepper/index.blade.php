@@ -15,7 +15,7 @@
         @endisset
     </div>
 
-    <div class="mb-auto h-full">
+    <div class="flex-1">
         {{ $slot }}
     </div>
 

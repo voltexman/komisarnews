@@ -56,18 +56,18 @@ $send = function () {
                 Зворотній зв`язок
             </div>
 
-            <x-form.input label="Ваше ім`я" icon="user" color='soft' name='name' class="mt-5" maxlength="40" />
+            <x-form.input label="Ваше ім`я" icon="user" variant="dark" name="name" class="mt-5" maxlength="40" />
             @error('name')
                 <x-error>{{ $message }}</x-error>
             @enderror
 
-            <x-form.input label="Контактні дані" icon="notebook-tabs" color='soft' name="contact" class="mt-5"
+            <x-form.input label="Контактні дані" icon="notebook-tabs" variant="dark" name="contact" class="mt-5"
                 maxlength="60" />
             @error('contact')
                 <x-error>{{ $message }}</x-error>
             @enderror
 
-            <x-form.textarea label="Повідомлення" color='soft' name="message" rows="5" class="mt-5" required
+            <x-form.textarea label="Повідомлення" variant="dark" name="message" class="mt-5 h-50" required
                 maxlength="1500" />
             @error('message')
                 <x-error>{{ $message }}</x-error>

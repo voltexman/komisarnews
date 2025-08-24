@@ -6,7 +6,9 @@ use App\Notifications\CallbackSent;
 
 state('phone');
 
-rules(['phone' => 'required|min:7|max:20']);
+rules(['phone' => 'required|min:7|max:20'])->messages([
+    'phone.required' => 'Вкажіть номер телефону',
+]);
 
 $send = function () {
     $this->validate();
@@ -50,15 +52,18 @@ $send = function () {
                     </x-tooltip>
                 </div>
             </div>
-            <x-form.input label="Номер телефону" name="phone" icon="phone" color="dark" x-mask="+380 (99) 999-99-99"
+            <x-form.input label="Номер телефону" name="phone" icon="phone" variant="dark" x-mask="+380 (99) 999-99-99"
                 wire:target="send" wire:loading.attr="disabled">
-                <x-slot:button type="submit" color="dark" wire:loading.attr='disabled' aria-label="Передзвоніть">
-                    <span wire:loading.class='hidden' wire:target="send">Передзвоніть
-                        <x-lucide-phone-call class="ms-1 inline-block size-4" />
-                    </span>
-                    <span wire:loading wire:target="send">Відправка
-                        <x-lucide-loader-circle class="ms-1 inline-block size-4 animate-spin" />
-                    </span>
+                <x-slot:button>
+                    <x-form.input-button type="submit" variant="dark" wire:loading.attr='disabled'
+                        aria-label="Передзвоніть">
+                        <span wire:loading.remove wire:target="send">Передзвоніть
+                            <x-lucide-phone-call class="ms-1 inline-block size-4" />
+                        </span>
+                        <span wire:loading wire:target="send">Відправка
+                            <x-lucide-loader-circle class="ms-1 inline-block size-4 animate-spin" />
+                        </span>
+                    </x-form.input-button>
                 </x-slot>
             </x-form.input>
         </form>

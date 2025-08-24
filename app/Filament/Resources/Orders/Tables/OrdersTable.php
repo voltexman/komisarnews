@@ -9,6 +9,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
+use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -18,6 +19,7 @@ class OrdersTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->striped()
             ->columns([
                 TextColumn::make('id')
                     ->label('№')
@@ -65,7 +67,8 @@ class OrdersTable
                 ViewAction::make()
                     ->label(false)
                     ->modalHeading('Деталі замовлення')
-                    ->modalWidth('4xl')
+                    ->modalWidth(Width::FourExtraLarge)
+                    ->closeModalByClickingAway(false)
                     ->schema([
                         Grid::make(3)->schema([
                             TextEntry::make('id')
@@ -86,7 +89,7 @@ class OrdersTable
                                 ->label('Статус'),
 
                             TextEntry::make('name')
-                                ->placeholder('Анонім')
+                                ->placeholder('анонім')
                                 ->icon('heroicon-s-user')
                                 ->label('Замовник'),
 
@@ -97,7 +100,7 @@ class OrdersTable
                                 ->columnSpan(2),
 
                             TextEntry::make('email')
-                                ->placeholder('Не вказано')
+                                ->placeholder('не вказано')
                                 ->icon('heroicon-s-envelope')
                                 ->copyable()
                                 ->label('E-mail'),
