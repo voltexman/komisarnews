@@ -40,7 +40,7 @@ class Order extends Component
         $this->current = $this->steps[$currentIndex + 1];
     }
 
-    public function isCurrent(string $step): bool
+    public function isActive(string $step): bool
     {
         return $this->current === $step;
     }

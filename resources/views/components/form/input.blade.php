@@ -29,7 +29,7 @@
                     $variant === 'light',
                 'text-max-text peer-[:not(:placeholder-shown)]:text-max-text peer-focus:text-max-text' =>
                     $variant === 'dark',
-                'input-label absolute top-0 start-0 p-4 h-full font-semibold sm:text-sm truncate pointer-events-none transition ease-in-out duration-300 border border-transparent origin-[0_0] peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-max-dark peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-max-dark',
+                'input-label absolute top-0 start-0 p-4 h-full font-semibold text-sm truncate pointer-events-none transition ease-in-out duration-300 border border-transparent origin-[0_0] peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-max-dark peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-max-dark',
             ])>
                 {{ $label }}
             </label>

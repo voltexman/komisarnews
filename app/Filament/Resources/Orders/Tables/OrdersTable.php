@@ -128,6 +128,7 @@ class OrdersTable
                                 ->label('Вік'),
 
                             TextEntry::make('options')
+                                ->default('не зрізане, не фарбоване, без сивини')
                                 ->label('Опції'),
 
                             TextEntry::make('color')

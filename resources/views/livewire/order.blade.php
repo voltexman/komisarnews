@@ -11,18 +11,18 @@
         </x-button>
     </x-card>
 @else
-    <x-card x-cloak>
+    <x-card id="order-form" x-cloak>
         <x-stepper caption="Оцінка та продаж волосся">
             <form wire:submit="save" class="h-full">
                 <x-slot:header>
-                    <x-stepper.navigation icon='file-text' label='Заявка' step="person" :active="$this->isCurrent('person')"
+                    <x-stepper.navigation step="person" label="Заявка" icon="file-text" :active="$this->isActive('person')"
                         :checked="$this->isChecked('person')" />
-                    <x-stepper.navigation icon='swatch-book' label='Опції' step="options" :active="$this->isCurrent('options')"
+                    <x-stepper.navigation step="options" label="Опції" icon="swatch-book" :active="$this->isActive('options')"
                         :checked="$this->isChecked('options')" />
                     {{-- <x-stepper.navigation icon='camera' label='Фото' step='order.photos' /> --}}
-                    <x-stepper.navigation icon='message-circle-more' label='Опис' step="description" :active="$this->isCurrent('description')"
-                        :checked="$this->isChecked('check')" :checked="$this->isChecked('description')" />
-                    <x-stepper.navigation icon='file-check' label='Дані' step="check" :active="$this->isCurrent('check')"
+                    <x-stepper.navigation step="description" label="Опис" icon="message-circle-more" :active="$this->isActive('description')"
+                        :active="$this->isActive('description')" :checked="$this->isChecked('description')" />
+                    <x-stepper.navigation step="check" label="Дані" icon="file-check" :active="$this->isActive('check')"
                         :checked="$this->isChecked('check')" />
                 </x-slot>
 

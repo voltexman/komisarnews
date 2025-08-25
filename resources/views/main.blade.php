@@ -298,24 +298,20 @@
             <div class="relative">
                 <div class="absolute inset-0 z-0 bg-center bg-no-repeat bg-contain bg-barber opacity-15"></div>
                 <div class="relative z-10">
-                    <p>Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
-                        Стильна зачіска завжди прикрашає образ, робить його більш ніжним, акуратним, жіночним і
-                        природним.</p>
+                    <p>Гарна густа шевелюра – це справжнє багатство будь-якої жінки. Стильна зачіска завжди прикрашає образ,
+                        робить його більш ніжним, акуратним, жіночним і природним.</p>
                     <p>Але така краса, забирає не тільки грошові вкладення, але й багато часу, сил і терпіння.
-                        Тривалі укладання, дорогий догляд, ерез це, в сучасному світі, де кожна хвилина
-                        на рахунку, іноді просто немає можливості цим займатись. Якщо ви зважилися щось
-                        змінити, змінити образ, надати йому родзинку і відчути небувалу <x-badge>легкість</x-badge>, то
-                        пропонуємо вам
-                        продати волосся. Якщо ви думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
+                        Тривалі укладання, дорогий догляд, ерез це, в сучасному світі, де кожна хвилина на рахунку, іноді
+                        просто немає можливості цим займатись. Якщо ви зважилися щось змінити, змінити образ, надати йому
+                        родзинку і відчути небувалу <x-badge>легкість</x-badge>, то пропонуємо вам продати волосся. Якщо ви
+                        думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
                         <x-badge>вільного часу</x-badge> у вас з'явиться. Ви зможете присвятити цінні години улюбленій
-                        справі, приділити
-                        увагу близьким, а не витрачати час на укладання. <x-badge>Свіжий образ</x-badge> надихне вас на нові
-                        справи,
-                        подарує впевненість, а компліменти на вашу адресу будуть сипатися звідусіль. Змінюючи себе, свій
-                        образ і стиль, ви можете заробити хороші гроші в свій сімейний бюджет! Ще ніколи зміна образу не
-                        була такою <x-badge>прибутковою</x-badge>. Пам'ятайте, що ваші локони можуть принести радість іншим
-                        людям, які в
-                        силу різних причин не мають можливості відростити красиву довжину.
+                        справі, приділити увагу близьким, а не витрачати час на укладання. <x-badge>Свіжий образ</x-badge>
+                        надихне вас на нові справи, подарує впевненість, а компліменти на вашу адресу будуть сипатися
+                        звідусіль. Змінюючи себе, свій образ і стиль, ви можете заробити хороші гроші в свій сімейний
+                        бюджет! Ще ніколи зміна образу не була такою <x-badge>прибутковою</x-badge>. Пам'ятайте, що ваші
+                        локони можуть принести радість іншим людям, які в силу різних причин не мають можливості відростити
+                        красиву довжину.
                     </p>
                 </div>
             </div>
@@ -403,64 +399,147 @@
     </x-section>
 
     <x-section class="!bg-max-black">
-
         <x-slot:title class="text-max-light">Покупка волосся</x-slot>
         <x-slot:caption class="text-max-text">
             Які чинники <span class="text-max-orange">впливають на вартість</span>
         </x-slot>
 
-        <x-factors>
-            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/ruler-measure-measurement.svg')">
-                <x-slot:caption>Довжина зрізу</x-slot>
-                <x-slot:description>
+        <div class="grid lg:grid-cols-2 gap-y-10 lg:gap-x-10">
+            <div>
+                <div class="flex">
+                    <h2 class="flex-none text-lg text-max-text me-2.5 font-bold font-[Oswald]">
+                        Довжина зрізу
+                    </h2>
+
+                    <div class="relative w-full mx-auto">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
+                    </div>
+                    <div
+                        class="flex justify-center items-center flex-none border-2 rounded-full border-max-soft size-11 ms-2.5">
+                        <img src="{{ Vite::asset('resources/images/icons/factors/ruler-measure-measurement.svg') }}"
+                            class="size-2/3 drop-shadow-lg" alt="">
+                    </div>
+                </div>
+
+                <div class="italic text-max-light">
                     Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то рекомендуємо ненадовго відкласти
                     продаж, кожен сантиметр здатний сильно відбитися на вартості.
-                </x-slot>
-            </x-factors.item>
+                </div>
+            </div>
 
-            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/thumb-up-sign.svg')">
-                <x-slot:caption>Структура локонів</x-slot>
-                <x-slot:description>
+            <div>
+                <div class="flex">
+                    <h2 class="flex-none text-lg text-max-text me-2.5 font-bold font-[Oswald]">
+                        Структура локонів
+                    </h2>
+
+                    <div class="relative w-full mx-auto">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
+                    </div>
+                    <div
+                        class="flex justify-center items-center flex-none border-2 rounded-full border-max-soft size-11 ms-2.5">
+                        <img src="{{ Vite::asset('resources/images/icons/factors/thumb-up-sign.svg') }}"
+                            class="size-2/3 drop-shadow-lg" alt="">
+                    </div>
+                </div>
+
+                <div class="italic text-max-light">
                     Вища вартість пропонується за якісні, здорові та рівномірні
                     локони. М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.
-                </x-slot>
-            </x-factors.item>
+                </div>
+            </div>
 
-            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/scissors-cutting-hair.svg')">
-                <x-slot:caption>Стан пучка</x-slot>
-                <x-slot:description>
+            <div>
+                <div class="flex">
+                    <h2 class="flex-none text-lg text-max-text me-2.5 font-bold font-[Oswald]">
+                        Стан пучка
+                    </h2>
+
+                    <div class="relative w-full mx-auto">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
+                    </div>
+                    <div
+                        class="flex justify-center items-center flex-none border-2 rounded-full border-max-soft size-11 ms-2.5">
+                        <img src="{{ Vite::asset('resources/images/icons/factors/scissors-cutting-hair.svg') }}"
+                            class="size-2/3 drop-shadow-lg" alt="">
+                    </div>
+                </div>
+
+                <div class="italic text-max-light">
                     Зріз має бути зроблений за правилами та закріплений зверху
                     гумкою і не мати колунів. Краще продавати свіжозрізані коси, їх ціна вища. Пролежані
                     прядки втрачають свій природний блиск та натуральні масла, які містяться в них.
-                </x-slot>
-            </x-factors.item>
+                </div>
+            </div>
 
-            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/chemistry-beaker-liquid-experiment-science.svg')">
-                <x-slot:caption>Хімічний вплив</x-slot>
-                <x-slot:description>
+            <div>
+                <div class="flex">
+                    <h2 class="flex-none text-lg text-max-text me-2.5 font-bold font-[Oswald]">
+                        Хімічний вплив
+                    </h2>
+
+                    <div class="relative w-full mx-auto">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
+                    </div>
+                    <div
+                        class="flex justify-center items-center flex-none border-2 rounded-full border-max-soft size-11 ms-2.5">
+                        <img src="{{ Vite::asset('resources/images/icons/factors/chemistry-beaker-liquid-experiment-science.svg') }}"
+                            class="size-2/3 drop-shadow-lg" alt="">
+                    </div>
+                </div>
+
+                <div class="italic text-max-light">
                     Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
                     з неоднорідною структурою. А також волосся із завивкою, забруднене або оброблене будь якими
                     хімічними речовинами.
-                </x-slot>
-            </x-factors.item>
+                </div>
+            </div>
 
-            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/spray-bottles.svg')">
-                <x-slot:caption>Колір волосся</x-slot>
-                <x-slot:description>
+            <div>
+                <div class="flex">
+                    <h2 class="flex-none text-lg text-max-text me-2.5 font-bold font-[Oswald]">
+                        Колір волосся
+                    </h2>
+
+                    <div class="relative w-full mx-auto">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
+                    </div>
+                    <div
+                        class="flex justify-center items-center flex-none border-2 rounded-full border-max-soft size-11 ms-2.5">
+                        <img src="{{ Vite::asset('resources/images/icons/factors/spray-bottles.svg') }}"
+                            class="size-2/3 drop-shadow-lg" alt="">
+                    </div>
+                </div>
+
+                <div class="italic text-max-light">
                     Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
                     Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
                     натуральні тони.
-                </x-slot>
-            </x-factors.item>
+                </div>
+            </div>
 
-            <x-factors.item :icon="Vite::asset('resources/images/icons/factors/female-hairs.svg')">
-                <x-slot:caption>Наявність сивини</x-slot>
-                <x-slot:description>
+            <div>
+                <div class="flex">
+                    <h2 class="flex-none text-lg text-max-text me-2.5 font-bold font-[Oswald]">
+                        Наявність сивини
+                    </h2>
+
+                    <div class="relative w-full mx-auto">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
+                    </div>
+                    <div
+                        class="flex justify-center items-center flex-none border-2 rounded-full border-max-soft size-11 ms-2.5">
+                        <img src="{{ Vite::asset('resources/images/icons/factors/female-hairs.svg') }}"
+                            class="size-2/3 drop-shadow-lg" alt="">
+                    </div>
+                </div>
+
+                <div class="italic text-max-light">
                     Зрізи з сивиною теж підлягають купівлі, але багато залежить
                     від доглянутості волосся та як довго росло з сивиною. Забарвлене і сиве волосся приймається від
                     50 сантиметрів.
-                </x-slot>
-            </x-factors.item>
-        </x-factors>
+                </div>
+            </div>
+        </div>
     </x-section>
 @endsection

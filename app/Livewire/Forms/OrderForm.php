@@ -42,7 +42,7 @@ class OrderForm extends Form
     public ?int $age = null;
 
     #[Session]
-    public $options = ['Не зрізане', 'Не фарбоване', 'Без сивини'];
+    public $options = [];
 
     #[Session]
     public string $description = '';

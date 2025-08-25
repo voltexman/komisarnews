@@ -10,7 +10,7 @@
 
 @section('content')
     <x-section>
-        <div class="flex flex-col gap-x-5 md:flex-row">
+        <div class="flex flex-col gap-5 md:flex-row">
             <div class="grow">
                 <div>
                     <div>Зв'яжіться з нами, надіславши листа.</div>
@@ -56,6 +56,12 @@
                         </div>
                     </div>
                 </div>
+
+                <x-alert type="info" title="Хочете дізнатися вартість Вашого волосся?" class="max-w-xl">
+                    Просто <a href="#order-form"><b>замовте оцінку</b></a> волосся, заповнивши форму нижче — залиште свої
+                    контактні дані, опції та параметри. Ми швидко зв’яжемося з Вами та надамо всю необхідну інформацію щодо
+                    оцінки.
+                </x-alert>
             </div>
 
             <div class="w-full max-w-md">
