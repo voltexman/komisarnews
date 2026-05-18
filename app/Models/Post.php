@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Enums\PostCategories;
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -32,15 +34,13 @@ class Post extends Model implements HasMedia
         'category',
         'is_published',
         'published_at',
+        'meta_title',
+        'meta_description',
+        'meta_robots',
     ];
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->addMediaConversion('admin')
-            ->width(320)
-            ->height(240)
-            ->nonOptimized();
-
         $this->addMediaConversion('preview')
             ->crop(640, 480, CropPosition::Center)
             ->format('webp');
@@ -50,9 +50,10 @@ class Post extends Model implements HasMedia
             ->format('webp');
     }
 
-    public function scopePublished($query)
+    #[Scope]
+    protected function published(Builder $query): void
     {
-        return $query->where('is_published', true)
+        $query->where('is_published', true)
             ->where('published_at', '<=', now());
     }
 }

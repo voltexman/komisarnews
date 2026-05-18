@@ -18,11 +18,13 @@ class PostsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
                 SpatieMediaLibraryImageColumn::make('image')
                     ->label(false)
                     ->collection('posts')
-                    ->conversion('admin'),
+                    ->conversion('preview')
+                    ->circular(),
 
                 TextColumn::make('name')
                     ->label('Назва')

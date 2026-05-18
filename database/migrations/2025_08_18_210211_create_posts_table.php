@@ -17,6 +17,9 @@ return new class extends Migration
             $table->longText('body')->nullable();
             $table->boolean('is_published')->default(true);
             $table->timestamp('published_at');
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_robots')->nullable()->default('index, follow');
             $table->softDeletes();
             $table->timestamps();
         });

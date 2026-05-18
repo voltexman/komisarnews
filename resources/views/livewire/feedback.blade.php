@@ -1,45 +1,65 @@
 <?php
 
-use function Livewire\Volt\{state, rules};
+use Livewire\Volt\Component;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\FeedbackSent;
 use App\Models\Feedback;
 
-state(['name', 'contact', 'message']);
+new class extends Component {
+    // Оголошуємо змінні стану компонента
+    public $name;
+    public $contact;
+    public $message;
 
-rules([
-    'name' => 'nullable|string|min:2|max:40',
-    'contact' => 'nullable|min:5|max:60',
-    'message' => 'required|string|min:10|max:1500',
-])->messages([
-    'message.min' => 'Занадто коротке повідомлення',
-    'message.required' => 'Напишіть повідомлення',
-]);
+    // Правила валідації
+    protected function rules()
+    {
+        return [
+            'name' => 'nullable|string|min:2|max:40',
+            'contact' => 'nullable|min:5|max:60',
+            'message' => 'required|string|min:10|max:1500',
+        ];
+    }
 
-$send = function () {
-    $validated = $this->validate();
+    // Кастомні повідомлення
+    protected function messages()
+    {
+        return [
+            'message.min' => 'Занадто коротке повідомлення',
+            'message.required' => 'Напишіть повідомлення',
+        ];
+    }
 
-    Feedback::create($validated);
+    // Метод відправки форми
+    public function send()
+    {
+        $validated = $this->validate();
 
-    Notification::routes([
-        'mail' => env('ADMIN_EMAIL'),
-        'telegram' => env('TELEGRAM_CHAT_ID'),
-    ])->notify(new FeedbackSent((object) $validated));
+        Feedback::create($validated);
 
-    $this->reset();
+        // Тепер створення екземпляра класу через 'new' працює без помилок
+        Notification::routes([
+            'mail' => env('ADMIN_EMAIL'),
+            'telegram' => env('TELEGRAM_CHAT_ID'),
+        ])->notify(new FeedbackSent((object) $validated));
 
-    session()->flash('callback-success');
+        $this->reset();
+
+        session()->flash('callback-success');
+    }
 };
 ?>
 
 <div
     class="relative min-h-[455px] overflow-hidden rounded-xl bg-max-black px-5 py-10 shadow-lg shadow-max-black/50 md:p-10">
-    @session('callback-success')
+
+    {{-- Надійна перевірка сесії через @if --}}
+    @if (session()->has('callback-success'))
         <div class="absolute inset-0 size-full">
             <div class="flex size-full flex-col items-center justify-center gap-y-5 text-max-soft">
                 <x-lucide-smile class="size-24 text-max-light" stroke-width="1.5" />
                 <div class="text-center font-medium text-max-light/80">
-                    <div>Лист успішно надісланий.</div>
+                    <div>Лист успешно надісланий.</div>
                     <div>Дякуємо Вам!</div>
                 </div>
                 <x-button class="mt-10" variant="light" wire:click="$refresh" wire:loading.attr="disabled"
@@ -51,24 +71,26 @@ $send = function () {
             </div>
         </div>
     @else
-        <form wire:submit="send">
+        <form wire:submit.prevent="send">
             <div class="text-center font-[Oswald] text-xl uppercase text-max-light">
                 Зворотній зв`язок
             </div>
 
-            <x-form.input label="Ваше ім`я" icon="user" variant="dark" name="name" class="mt-5" maxlength="40" />
+            {{-- Для кастомних компонентів переконайтеся, що всередині них є wire:model --}}
+            <x-form.input wire:model="name" label="Ваше ім`я" icon="user" variant="dark" name="name"
+                class="mt-5" maxlength="40" />
             @error('name')
                 <x-error>{{ $message }}</x-error>
             @enderror
 
-            <x-form.input label="Контактні дані" icon="notebook-tabs" variant="dark" name="contact" class="mt-5"
-                maxlength="60" />
+            <x-form.input wire:model="contact" label="Контактні дані" icon="notebook-tabs" variant="dark" name="contact"
+                class="mt-5" maxlength="60" />
             @error('contact')
-                <x-error>{{ $message }}</x-error>
+                <x-error>{{ $error }}</x-error> {{-- Виправлено змінну на $message --}}
             @enderror
 
-            <x-form.textarea label="Повідомлення" variant="dark" name="message" class="mt-5 h-50" required
-                maxlength="1500" />
+            <x-form.textarea wire:model="message" label="Повідомлення" variant="dark" name="message" class="mt-5 h-50"
+                required maxlength="1500" />
             @error('message')
                 <x-error>{{ $message }}</x-error>
             @enderror
@@ -86,12 +108,13 @@ $send = function () {
 
             <div class="flex justify-center">
                 <x-button type="submit" variant='orange' class="mt-10">
-                    <span wire:loading.remove>Надіслати</span>
-                    <x-lucide-send wire:loading.remove class="ms-1.5 inline-block size-4" />
-                    <span wire:loading>Відправка</span>
-                    <x-lucide-loader-2 wire:loading class="ms-1.5 inline-block size-4 animate-spin" />
+                    <span wire:loading.remove wire:target="send">Надіслати</span>
+                    <x-lucide-send wire:loading.remove wire:target="send" class="ms-1.5 inline-block size-4" />
+                    <span wire:loading wire:target="send">Відправка</span>
+                    <x-lucide-loader-2 wire:loading wire:target="send"
+                        class="ms-1.5 inline-block size-4 animate-spin" />
                 </x-button>
             </div>
         </form>
-    @endsession
+    @endif
 </div>

@@ -1,28 +1,48 @@
 <?php
 
-use function Livewire\Volt\{state, rules};
+use Livewire\Volt\Component;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\CallbackSent;
 
-state('phone');
+new class extends Component {
+    // Оголошуємо властивість (state)
+    public $phone;
 
-rules(['phone' => 'required|min:7|max:20'])->messages([
-    'phone.required' => 'Вкажіть номер телефону',
-]);
+    // Правила валідації
+    protected function rules()
+    {
+        return [
+            'phone' => 'required|min:7|max:20',
+        ];
+    }
 
-$send = function () {
-    $this->validate();
+    // Кастомні повідомлення помилок
+    protected function messages()
+    {
+        return [
+            'phone.required' => 'Вкажіть номер телефону',
+            'phone.min' => 'Номер телефону занадто короткий',
+            'phone.max' => 'Номер телефону занадто довгий',
+        ];
+    }
 
-    Notification::route('telegram', env('TELEGRAM_CHAT_ID'))->notify(new CallbackSent($this->phone));
+    // Дія відправки форми
+    public function send()
+    {
+        $this->validate();
 
-    $this->reset();
+        // Тепер конструкція 'new' працює ідеально, бо знаходиться всередині стандартного методу класу
+        Notification::route('telegram', env('TELEGRAM_CHAT_ID'))->notify(new CallbackSent($this->phone));
 
-    session()->flash('callback-success');
+        $this->reset('phone');
+
+        session()->flash('callback-success');
+    }
 };
 ?>
 
 <div class="relative flex h-20 flex-col">
-    @session('callback-success')
+    @if (session()->has('callback-success'))
         <div class="flex size-full bg-max-black">
             <div class="flex flex-row items-center justify-center self-center">
                 <div class="me-5 flex self-center">
@@ -52,8 +72,8 @@ $send = function () {
                     </x-tooltip>
                 </div>
             </div>
-            <x-form.input label="Номер телефону" name="phone" icon="phone" variant="dark" x-mask="+380 (99) 999-99-99"
-                wire:target="send" wire:loading.attr="disabled">
+            <x-form.input label="Номер телефону" name="phone" icon="phone" variant="dark"
+                x-mask="+380 (99) 999-99-99" wire:target="send" wire:loading.attr="disabled">
                 <x-slot:button>
                     <x-form.input-button type="submit" variant="dark" wire:loading.attr='disabled'
                         aria-label="Передзвоніть">
@@ -64,8 +84,8 @@ $send = function () {
                             <x-lucide-loader-circle class="ms-1 inline-block size-4 animate-spin" />
                         </span>
                     </x-form.input-button>
-                </x-slot>
+                </x-slot:button>
             </x-form.input>
         </form>
-    @endsession
+    @endif
 </div>

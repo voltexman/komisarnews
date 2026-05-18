@@ -20,6 +20,9 @@ class PostFactory extends Factory
             'body' => fake()->paragraph(50),
             'category' => PostCategories::ARTICLES,
             'is_published' => fake()->boolean(),
+            'meta_title' => fake()->optional()->sentence(),
+            'meta_description' => fake()->optional()->sentence(),
+            'meta_robots' => 'index, follow',
             'published_at' => fake()->dateTime(now()),
         ];
     }
