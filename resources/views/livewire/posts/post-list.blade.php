@@ -35,7 +35,7 @@
                                 {{ $post->name }}
                             </a>
                         </div>
-                        <div class="font-medium">
+                        <div class="font-medium text-lg">
                             {{ Str::limit(strip_tags($post->body), 400) }}
                         </div>
                         <a href="{{ route('post.show', $post->slug) }}">
