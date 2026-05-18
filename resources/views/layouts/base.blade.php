@@ -54,8 +54,8 @@
 
                     {{-- Logo --}}
                     <div class="flex shrink-0 items-center">
-                        <a href="{{ route('main') }}" class="text-lg font-normal uppercase text-max-light">
-                            komisar<span class="rounded bg-max-orange px-1 text-white">news</span>
+                        <a href="{{ route('main') }}" class="text-lg font-semibold uppercase text-max-light">
+                            prodam<span class="rounded bg-max-orange px-1 py-0.5 text-white">volossya</span>
                         </a>
                     </div>
 

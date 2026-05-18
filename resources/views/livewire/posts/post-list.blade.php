@@ -1,3 +1,5 @@
+@use('Illuminate\Support\Str')
+
 <div>
     @if ($posts->isEmpty())
         <div class="flex flex-col items-center">
@@ -22,23 +24,20 @@
                     </div>
                     <div class="md:w-1/2 flex-none">
                         <a href="{{ route('post.show', $post->slug) }}">
-                            <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" class="rounded-xl object-cover"
-                                alt="{{ $post->name }}">
+                            <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}"
+                                class="rounded-xl aspect-4/3 object-center object-cover" alt="{{ $post->name }}">
                         </a>
                     </div>
                     <div class="flex flex-col gap-y-5 grow">
-                        <div
-                            class="flex items-center gap-x-1.5 -mb-5 text-black/70 hover:text-max-dark transition-colors duration-300">
-                            <x-lucide-tag class="size-3" />
-                            <span class="text-sm font-semibold">tag one</span>
-                        </div>
                         <div class="text-3xl font-[Oswald] line-clamp-2">
                             <a href="{{ route('post.show', $post->slug) }}"
                                 class="hover:text-max-dark transition-colors duration-300">
                                 {{ $post->name }}
                             </a>
                         </div>
-                        <div class="font-medium">{{ \Illuminate\Support\Str::limit($post->body, 400) }}</div>
+                        <div class="font-medium">
+                            {{ Str::limit(strip_tags($post->body), 400) }}
+                        </div>
                         <a href="{{ route('post.show', $post->slug) }}">
                             <x-button variant="black" class="flex gap-x-1.5 me-auto">
                                 <span class="">Детальніше...</span>
