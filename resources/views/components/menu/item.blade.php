@@ -8,7 +8,7 @@
 @if (!$active)
     <li @class([
         $activeClass,
-        'mx-10 mb-3 text-sm transition lg:m-0 hover:text-max-soft',
+        'mx-10 mb-3 transition lg:m-0 hover:text-max-soft',
     ])>
         <a class="flex items-center w-full p-3 font-semibold border rounded-lg ps-6 lg:p-0 lg:bg-transparent lg:border-0 gap-x-2 border-max-soft/30 bg-max-dark/30"
             href="{{ $link }}">

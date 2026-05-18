@@ -55,7 +55,7 @@
                     {{-- Logo --}}
                     <div class="flex shrink-0 items-center">
                         <a href="{{ route('main') }}" class="text-lg font-semibold uppercase text-max-light">
-                            prodam<span class="rounded bg-max-orange px-1 py-0.5 text-white">volossya</span>
+                            Продам<span class="rounded bg-max-orange px-1 py-0.5 text-white">Волосся</span>
                         </a>
                     </div>
 
@@ -167,21 +167,16 @@
 
     <footer class="bg-max-black">
         <div class="max-w-6xl mx-auto py-20">
-            <div class="grid lg:grid-cols-3 lg:justifybetween">
-                <div class="font-semibold text-max-light/60">
-                    <div class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-map-pin class="me-1 mt-0.5 size-4" />
-                        <span>Україна, Київ</span>
-                    </div>
-                    <div class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-user-2 class="me-1 mt-0.5 size-4" />
-                        <span>Максим Комісар</span>
-                    </div>
+            <div class="grid lg:grid-cols-3">
+                <div class="font-semibold text-center lg:text-left text-max-light/60">
+                    Вся Україна<br>
+                    Купівля натурального волосся<br>
+                    Партнерські перукарі в різних містах
                 </div>
 
-                <div class="mt-5 text-center lg:mt-0">
+                <div class="mt-10 text-center lg:mt-0">
                     <div class="text-2xl font-extrabold text-max-text">+380 (73) 785-77-77</div>
-                    <div class="font-semibold text-max-light/60">123komisar@gmail.com</div>
+                    <div class="font-semibold text-max-light/60">prodamvolossya@gmail.com</div>
                 </div>
 
                 <div class="mt-10 flex justify-center lg:justify-end gap-3 self-center text-max-soft lg:mt-0">
@@ -197,7 +192,7 @@
             </div>
         </div>
         <div class="border-t border-max-light/[.07] py-5 text-center text-xs text-max-light/50">
-            {{ date('Y') }} © KomisarNews. Всі права застережено.
+            {{ date('Y') }} © ProdamVolossya. Всі права застережено.
         </div>
     </footer>
 

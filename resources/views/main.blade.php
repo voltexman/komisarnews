@@ -13,14 +13,16 @@
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-5 mx-auto max-w-7xl lg:px-10">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
-                <h1 class="text-2xl font-light text-center uppercase text-max-light lg:text-6xl"
-                    x-intersect="$el.classList.add('slide-down')">
-                    Продаж та покупка<br>волосся <span class="text-max-orange">у Києві.</span>
+                <h1 class="text-2xl font-light text-center uppercase text-max-light lg:text-6xl">
+                    ПРОДАТИ <span class="text-max-orange">ВОЛОССЯ<br>
+                        <span class="lg:text-8xl">В УКРАЇНІ.</span></span>
                 </h1>
-                <h2 class="mt-5 lg:mt-10 font-light text-xl lg:text-4xl text-center uppercase text-max-light/80"
-                    x-intersect="$el.classList.add('slide-up')">
-                    Купуємо дорого
+                <h2 class="mt-5 lg:mt-10 font-light text-xl lg:text-3xl text-center uppercase text-max-light/80">
+                    Купуємо натуральне волосся від <span class="text-max-orange">40 см</span>
                 </h2>
+                <h3 class="font-light text-xl lg:text-2xl text-center text-max-light/80">
+                    Оцінка за фото. Партнерські перукарі в різних містах
+                </h3>
             </div>
         </div>
         <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
@@ -71,8 +73,8 @@
                 <h2 class="lg:text-4xl text-2xl mb-8 font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
                     Чому Варто Звернутися <br class="lg:hidden">Саме В Нашу Компанію?
                 </h2>
-                <p class="mt-14"><x-badge>Куплю</x-badge> волосся - в мережі можна знайти тисячі оголошень, але далеко не
-                    всі продавці працюють <x-badge>чесно.</x-badge> Ми є Європейською компанією, яка співпрацює з клієнтами
+                <p class="mt-14 text-lg"><x-badge>Куплю</x-badge> волосся - в мережі можна знайти тисячі оголошень, але
+                    далеко не всі продавці працюють <x-badge>чесно.</x-badge> Ми - компанія, яка співпрацює з клієнтами
                     по всьому світу. Наша компанія є прямим скупником локонів, тому пропонуємо <x-badge> найвищі ціни.
                     </x-badge> Цінуємо визнання і довіру наших клієнтів, <x-badge>гарантуємо</x-badge> приємну співпрацю і
                     гідну оплату Вашого товару. Здійснюємо скупку волосся по <x-badge>Україні</x-badge> і відбираємо якісні,
