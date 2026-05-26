@@ -10,18 +10,18 @@
     <div class="relative w-full h-screen py-25 overflow-hidden isolate sm:py-30">
         <div class="absolute top-0 left-0 w-full h-full bg-max-black/60"></div>
         <img data-src="{{ Vite::asset('resources/images/bg-header.webp') }}" data-sizes="auto" alt="Komisarnews"
-            class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
+            class="absolute inset-0 object-cover object-right size-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-5 mx-auto max-w-7xl lg:px-10">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
-                <h1 class="text-4xl font-[Oswald] drop-shadow-xl text-center uppercase text-max-light lg:text-6xl">
+                <h1 class="text-4xl font-[Lora] drop-shadow-xl text-center uppercase text-max-light lg:text-6xl">
                     ПРОДАТИ <span class="text-max-orange">ВОЛОССЯ<br>
                         <span class="text-6xl lg:text-8xl">В УКРАЇНІ.</span></span>
                 </h1>
-                <h2
-                    class="mt-5 lg:mt-10 font-semibold text-balance text-xl lg:text-3xl text-center uppercase text-max-light/80">
+                <h2 class="mt-10 font-semibold text-balance text-xl lg:text-3xl text-center uppercase text-max-light/80">
                     Купуємо натуральне волосся від <span class="text-max-orange">40 см</span>
                 </h2>
-                <h3 class="font-light px-5 lg:text-2xl text-center text-balance text-max-light/80">
+                <span class="block lg:hidden size-2.5 rounded-full bg-max-orange/90 mx-auto my-2.5"></span>
+                <h3 class="font-light px-5 lg:text-2xl text-center text-balance text-max-light/60">
                     Оцінка за фото. Партнерські перукарі в різних містах
                 </h3>
             </div>
@@ -299,7 +299,9 @@
 
         <div class="grid lg:mt-20 lg:grid-cols-2 gap-y-10 lg:gap-x-10">
             <div class="relative">
-                <div class="absolute inset-0 z-0 bg-center bg-no-repeat bg-contain bg-barber opacity-15"></div>
+                <div class="absolute inset-0 z-0 bg-center bg-no-repeat bg-contain opacity-15"
+                    style="background-image: url('{{ Vite::asset('resources/images/barber.png') }}')">
+                </div>
                 <div class="relative z-10">
                     <p>Гарна густа шевелюра – це справжнє багатство будь-якої жінки. Стильна зачіска завжди прикрашає образ,
                         робить його більш ніжним, акуратним, жіночним і природним.</p>
