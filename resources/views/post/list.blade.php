@@ -2,7 +2,7 @@
 
 @section('meta_title', 'Список статей')
 @section('meta_description', 'Опис сторінки - список статей')
-@section('meta_robots', 'index, follow')
+@section('meta_robots', 'noindex, nofollow')
 @section('meta_image', Vite::asset('resources/images/article-header.webp'))
 
 @section('header')

@@ -2,7 +2,7 @@
 
 @section('meta_title', 'Контакти')
 @section('meta_description', 'Опис сторінки - контакти')
-@section('meta_robots', 'index, follow')
+@section('meta_robots', 'noindex, nofollow')
 @section('meta_image', Vite::asset('resources/images/contact-header.webp'))
 
 @section('header')

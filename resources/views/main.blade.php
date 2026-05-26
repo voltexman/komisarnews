@@ -2,7 +2,7 @@
 
 @section('meta_title', 'Головна сторінка')
 @section('meta_description', 'Опис головної сторінки')
-@section('meta_robots', 'index, follow')
+@section('meta_robots', 'noindex, nofollow')
 @section('meta_image', Vite::asset('resources/images/bg-header.webp'))
 
 @section('header')
