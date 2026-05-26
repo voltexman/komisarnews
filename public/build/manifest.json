@@ -1,10 +1,6 @@
 {
-  "public/images/barber.png": {
-    "file": "assets/barber-CJ4SNP6M.png",
-    "src": "public/images/barber.png"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-CR-19W_s.css",
+    "file": "assets/app-CaeiIAIP.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -19,9 +15,25 @@
     "file": "assets/about-Bif6kX13.jpg",
     "src": "resources/images/about.jpg"
   },
+  "resources/images/article-header.webp": {
+    "file": "assets/article-header-DOrqVY-c.webp",
+    "src": "resources/images/article-header.webp"
+  },
+  "resources/images/barber.png": {
+    "file": "assets/barber-CJ4SNP6M.png",
+    "src": "resources/images/barber.png"
+  },
+  "resources/images/bg-header.webp": {
+    "file": "assets/bg-header-DZMN2o1O.webp",
+    "src": "resources/images/bg-header.webp"
+  },
   "resources/images/combing.jpg": {
     "file": "assets/combing-Bwbm_wNY.jpg",
     "src": "resources/images/combing.jpg"
+  },
+  "resources/images/contact-header.webp": {
+    "file": "assets/contact-header-1qhfpkgm.webp",
+    "src": "resources/images/contact-header.webp"
   },
   "resources/images/cutting.jpg": {
     "file": "assets/cutting-DC8YkNJY.jpg",

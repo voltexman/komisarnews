@@ -3,11 +3,11 @@
 @section('meta_title', 'Список статей')
 @section('meta_description', 'Опис сторінки - список статей')
 @section('meta_robots', 'index, follow')
-@section('meta_image', asset('images/article-header.webp'))
+@section('meta_image', Vite::asset('resources/images/article-header.webp'))
 
 @section('header')
     @parent
-    <x-header :image="asset('images/article-header.webp')">
+    <x-header :image="Vite::asset('resources/images/article-header.webp')">
         <x-slot:title>Статті та новини</x-slot>
         <x-slot:caption>
             Дізнавайтесь більше про догляд за волоссям, тренди та поради експертів.

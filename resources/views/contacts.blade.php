@@ -3,11 +3,11 @@
 @section('meta_title', 'Контакти')
 @section('meta_description', 'Опис сторінки - контакти')
 @section('meta_robots', 'index, follow')
-@section('meta_image', asset('images/contact-header.webp'))
+@section('meta_image', Vite::asset('resources/images/contact-header.webp'))
 
 @section('header')
     @parent
-    <x-header :image="asset('images/contact-header.webp')">
+    <x-header :image="Vite::asset('resources/images/contact-header.webp')">
         <x-slot:title>Контакти</x-slot>
         <x-slot:caption>Зв`язок з нами</x-slot>
     </x-header>

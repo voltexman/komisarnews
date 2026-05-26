@@ -3,13 +3,13 @@
 @section('meta_title', 'Головна сторінка')
 @section('meta_description', 'Опис головної сторінки')
 @section('meta_robots', 'index, follow')
-@section('meta_image', asset('images/bg-header.webp'))
+@section('meta_image', Vite::asset('resources/images/bg-header.webp'))
 
 @section('header')
     @parent
     <div class="relative w-full h-screen py-25 overflow-hidden isolate sm:py-30">
         <div class="absolute top-0 left-0 w-full h-full bg-max-black/60"></div>
-        <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="Komisarnews"
+        <img data-src="{{ Vite::asset('resources/images/bg-header.webp') }}" data-sizes="auto" alt="Komisarnews"
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-5 mx-auto max-w-7xl lg:px-10">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
