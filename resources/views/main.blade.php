@@ -1,9 +1,9 @@
 @extends('layouts.base')
 
-@section('title', 'Головна сторінка')
-@section('keywords', 'Головна сторінка')
-@section('description', 'Головна сторінка')
-@section('robots', 'all')
+@section('meta_title', 'Головна сторінка')
+@section('meta_description', 'Опис головної сторінки')
+@section('meta_robots', 'index, follow')
+@section('meta_image', asset('images/bg-header.webp'))
 
 @section('header')
     @parent
@@ -13,22 +13,23 @@
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-5 mx-auto max-w-7xl lg:px-10">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
-                <h1 class="text-2xl font-light text-center uppercase text-max-light lg:text-6xl">
+                <h1 class="text-4xl font-[Oswald] drop-shadow-xl text-center uppercase text-max-light lg:text-6xl">
                     ПРОДАТИ <span class="text-max-orange">ВОЛОССЯ<br>
-                        <span class="lg:text-8xl">В УКРАЇНІ.</span></span>
+                        <span class="text-6xl lg:text-8xl">В УКРАЇНІ.</span></span>
                 </h1>
-                <h2 class="mt-5 lg:mt-10 font-light text-xl lg:text-3xl text-center uppercase text-max-light/80">
+                <h2
+                    class="mt-5 lg:mt-10 font-semibold text-balance text-xl lg:text-3xl text-center uppercase text-max-light/80">
                     Купуємо натуральне волосся від <span class="text-max-orange">40 см</span>
                 </h2>
-                <h3 class="font-light text-xl lg:text-2xl text-center text-max-light/80">
+                <h3 class="font-light px-5 lg:text-2xl text-center text-balance text-max-light/80">
                     Оцінка за фото. Партнерські перукарі в різних містах
                 </h3>
             </div>
         </div>
         <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
             <a href="#about" rel="nofollow" aria-label="Перейти до опису"
-                class="z-40 flex size-12 border border-max-light/60 rounded-full animate-bounce bg-slate-50/20">
-                <x-lucide-arrow-down class="self-center size-6 mx-auto text-slate-100" />
+                class="z-40 flex size-15 border border-max-light/20 rounded-full animate-bounce bg-max-light/20">
+                <x-lucide-arrow-down class="self-center size-8 mx-auto text-max-light" />
             </a>
         </div>
     </div>

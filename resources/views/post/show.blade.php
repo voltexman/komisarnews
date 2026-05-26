@@ -1,5 +1,10 @@
 @extends('layouts.base')
 
+@section('meta_title', 'Перегляд статті')
+@section('meta_description', 'Опис сторінки - перегляд статті')
+@section('meta_robots', 'index, follow')
+@section('meta_image', $post->getFirstMediaUrl('posts', 'header') ?: asset('images/article-header.webp'))
+
 @section('header')
     @parent
     <x-header :image="$post->getFirstMediaUrl('posts', 'header') ?: asset('images/article-header.webp')">

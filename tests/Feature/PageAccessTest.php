@@ -1,10 +1,11 @@
 <?php
 
 use App\Models\Post;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use function Pest\Laravel\get;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 test('Перехід на головну сторінку', function () {
     $response = get(route('main'));

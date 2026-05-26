@@ -1,9 +1,10 @@
 <?php
 
 use App\Models\Subscriber;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 test('user can subscribe with valid email', function () {
     Livewire::test('subscriber')

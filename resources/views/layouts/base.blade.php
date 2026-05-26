@@ -6,19 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
     <meta name="google-site-verification" content="P_5zyoITcuRC83ELC_TcPLOmRi_NKcdcH4Sct9jORGg" />
 
+    {{-- SEO Meta Tags --}}
+    <title>@yield('meta_title', config('app.name'))</title>
+    <meta name="description" content="@yield('meta_description', config('app.name'))">
+    <meta name="robots" content="@yield('meta_robots', 'index, follow')">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('meta_title', config('app.name'))">
+    <meta property="og:description" content="@yield('meta_description', config('app.name'))">
+    <meta property="og:image" content="@yield('meta_image', Vite::asset('resources/images/header.webp'))">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+    <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="@yield('meta_title', config('app.name'))">
+    <meta name="twitter:description" content="@yield('meta_description', config('app.name'))">
+    <meta name="twitter:image" content="@yield('meta_image', Vite::asset('resources/images/header.webp'))">
+
     {{-- // TODO: Додати favicon для всіх можливих варіантів --}}
     <link rel="icon" type="image/png" href="favicon.png">
-
-    <!-- Allow web app to be run in full-screen mode - iOS. -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Allow web app to be run in full-screen mode - Android. -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <!-- Make the app title different than the page title - iOS. -->
-    <meta name="apple-mobile-web-app-title" content="KomisarNews">
-    <!-- Configure the status bar - iOS. -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="brown">
-    <!-- Disable automatic phone number detection. -->
-    <meta name="format-detection" content="telephone=no">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -37,8 +48,8 @@
         class="fixed bottom-4 right-4 z-40 grid h-12 w-12 items-center rounded-full bg-max-soft/50 shadow-md shadow-max-dark/20"
         :style="{ background: `conic-gradient(rgb(92, 75, 56, .7) ${percent}% , rgb(145, 118, 90, .4) ${percent}%)` }">
         <a href="#" rel="nofollow">
-            <span class="z-50 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-max-soft">
-                <x-lucide-arrow-up class="h-4 w-4 text-center text-max-light" />
+            <span class="z-50 mx-auto flex size-10 items-center justify-center rounded-full bg-max-soft">
+                <x-lucide-arrow-up class="size-4 text-center text-max-light" />
             </span>
         </a>
     </div>
@@ -54,8 +65,9 @@
 
                     {{-- Logo --}}
                     <div class="flex shrink-0 items-center">
-                        <a href="{{ route('main') }}" class="text-lg font-semibold uppercase text-max-light">
-                            Продам<span class="rounded bg-max-orange px-1 py-0.5 text-white">Волосся</span>
+                        <a href="{{ route('main') }}" class="text-lg font-[Oswald] font-semibold uppercase text-max-light">
+                            Продам<span
+                                class="rounded inline-block ml-1.5 rotate-5 bg-max-orange px-1 py-0.5 text-white">Волосся</span>
                         </a>
                     </div>
 

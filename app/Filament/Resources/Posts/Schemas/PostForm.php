@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Posts\Schemas;
 use App\Enums\PostCategories;
 use Filament\Actions\Action;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -12,7 +13,6 @@ use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Hidden;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
@@ -58,13 +58,13 @@ class PostForm
                                     ->prefixIcon('heroicon-o-link')
                                     ->maxLength(255)
                                     ->placeholder('Введіть slug для посту')
-                                    ->disabled(fn(Get $get): bool => (bool) ($get('slug_locked') ?? true))
-                                    ->readOnly(fn(Get $get): bool => (bool) ($get('slug_locked') ?? true))
+                                    ->disabled(fn (Get $get): bool => (bool) ($get('slug_locked') ?? true))
+                                    ->readOnly(fn (Get $get): bool => (bool) ($get('slug_locked') ?? true))
                                     ->dehydrated()
                                     ->suffixAction(
                                         Action::make('toggleSlugLock')
-                                            ->icon(fn(Get $get): string => ($get('slug_locked') ?? true) ? 'heroicon-m-lock-closed' : 'heroicon-m-lock-open')
-                                            ->tooltip(fn(Get $get): string => ($get('slug_locked') ?? true) ? 'Розблокувати' : 'Заблокувати')
+                                            ->icon(fn (Get $get): string => ($get('slug_locked') ?? true) ? 'heroicon-m-lock-closed' : 'heroicon-m-lock-open')
+                                            ->tooltip(fn (Get $get): string => ($get('slug_locked') ?? true) ? 'Розблокувати' : 'Заблокувати')
                                             ->action(function (Get $get, Set $set): void {
                                                 $currentState = (bool) ($get('slug_locked') ?? true);
                                                 $set('slug_locked', ! $currentState);

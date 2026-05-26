@@ -7,13 +7,14 @@ use App\Models\Post;
 use App\Models\User;
 // use App\Filament\Resources\Posts\Pages\ViewArticle;
 use Filament\Actions\DeleteAction;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;
 use function Pest\Livewire\livewire;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 beforeEach(function () {
     actingAs(User::factory()->create());

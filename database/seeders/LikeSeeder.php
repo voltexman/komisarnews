@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Like;
 use Illuminate\Database\Seeder;
 
 class LikeSeeder extends Seeder
@@ -11,6 +12,6 @@ class LikeSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Like::factory(30)->create();
+        Like::factory(30)->create();
     }
 }

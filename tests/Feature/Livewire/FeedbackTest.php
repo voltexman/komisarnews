@@ -2,12 +2,13 @@
 
 use App\Models\Feedback;
 use App\Notifications\FeedbackSent;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
 use function Pest\Laravel\assertDatabaseHas;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 test('validates feedback fields', function ($field, $value, $expectedError) {
     Notification::fake();

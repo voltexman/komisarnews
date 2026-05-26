@@ -1,10 +1,11 @@
 <?php
 
 use App\Notifications\CallbackSent;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 test('user can request a callback with valid phone', function () {
     Notification::fake();

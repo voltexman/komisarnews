@@ -1,5 +1,10 @@
 @extends('layouts.base')
 
+@section('meta_title', 'Список статей')
+@section('meta_description', 'Опис сторінки - список статей')
+@section('meta_robots', 'index, follow')
+@section('meta_image', asset('images/article-header.webp'))
+
 @section('header')
     @parent
     <x-header :image="asset('images/article-header.webp')">

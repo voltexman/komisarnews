@@ -1,5 +1,10 @@
 @extends('layouts.base')
 
+@section('meta_title', 'Контакти')
+@section('meta_description', 'Опис сторінки - контакти')
+@section('meta_robots', 'index, follow')
+@section('meta_image', asset('images/contact-header.webp'))
+
 @section('header')
     @parent
     <x-header :image="asset('images/contact-header.webp')">
