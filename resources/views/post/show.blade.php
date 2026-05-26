@@ -3,11 +3,12 @@
 @section('meta_title', 'Перегляд статті')
 @section('meta_description', 'Опис сторінки - перегляд статті')
 @section('meta_robots', 'noindex, nofollow')
-@section('meta_image', $post->getFirstMediaUrl('posts', 'header') ?: asset('images/article-header.webp'))
+@section('meta_image', $post->getFirstMediaUrl('posts', 'header') ?:
+    Vite::asset('resources/images/article-header.webp'))
 
 @section('header')
     @parent
-    <x-header :image="$post->getFirstMediaUrl('posts', 'header') ?: asset('images/article-header.webp')">
+    <x-header :image="$post->getFirstMediaUrl('posts', 'header') ?: Vite::asset('resources/images/article-header.webp')">
         <x-slot:title>{{ $post->name }}</x-slot>
     </x-header>
 @endsection
