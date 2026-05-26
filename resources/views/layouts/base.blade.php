@@ -17,7 +17,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="@yield('meta_title', config('app.name'))">
     <meta property="og:description" content="@yield('meta_description', config('app.name'))">
-    <meta property="og:image" content="@yield('meta_image', Vite::asset('resources/images/header.webp'))">
+    <meta property="og:image" content="@yield('meta_image', Vite::asset('resources/images/bg-header.webp'))">
     <meta property="og:site_name" content="{{ config('app.name') }}">
     <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -26,7 +26,7 @@
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="@yield('meta_title', config('app.name'))">
     <meta name="twitter:description" content="@yield('meta_description', config('app.name'))">
-    <meta name="twitter:image" content="@yield('meta_image', Vite::asset('resources/images/header.webp'))">
+    <meta name="twitter:image" content="@yield('meta_image', Vite::asset('resources/images/bg-header.webp'))">
 
     {{-- // TODO: Додати favicon для всіх можливих варіантів --}}
     <link rel="icon" type="image/png" href="favicon.png">
